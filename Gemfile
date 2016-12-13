@@ -46,9 +46,13 @@ group :development, :test do
   gem 'factory_girl_rails' #creating items for tests
   gem 'simplecov' #so we can tell what's being hit
   gem 'database_cleaner' #keep it clean
+
+end
+
+group :test do
   gem 'vcr' #for testing our api's
   gem 'webmock' #used in conjuction with vcr to intercept out web calls
-
+  
 end
 
 group :development do
