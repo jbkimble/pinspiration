@@ -28,9 +28,24 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'rb-readline' #make pry work
+gem 'figaro' #hide our stuff
+gem 'serializer' #api serializers
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry' #duh
+  gem 'launchy' #because restarting the server every time sucks
+  gem 'faker' # for seed data
+
+  gem 'rspec-rails' #testing suite
+  gem 'capybara' #feature testing
+  gem 'factory_girl_rails' #creating items for tests
+  gem 'simplecov' #so we can tell what's being hit
+  gem 'database_cleaner' #keep it clean
+
 end
 
 group :development do
