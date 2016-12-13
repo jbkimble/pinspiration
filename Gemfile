@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'rb-readline' #make pry work
 gem 'figaro' #hide our stuff
 gem 'serializer' #api serializers
+gem 'faraday' #for http requests
 
 
 group :development, :test do
@@ -45,6 +46,8 @@ group :development, :test do
   gem 'factory_girl_rails' #creating items for tests
   gem 'simplecov' #so we can tell what's being hit
   gem 'database_cleaner' #keep it clean
+  gem 'vcr' #for testing our api's
+  gem 'webmock' #used in conjuction with vcr to intercept out web calls
 
 end
 
