@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
-  def show
 
+  def index
+  end
+
+  def show
+    user = current_user
+    @boards = user.boards.all
   end
 
   def new
