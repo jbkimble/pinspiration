@@ -3,6 +3,7 @@ require 'rails_helper'
 describe 'As a User' do
   context "I visit the home page and click on 'create account'" do
     scenario 'And I am able to enter my information and create and account' do
+      create(:role, id: 2, name: "user")
       visit root_path
       click_on 'Create Account'
 
