@@ -6,4 +6,11 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   has_many :comments
   has_many :boards
+
+  after_save :generate_slug
+
+  def generate_slug
+    self.slug = name.parameterize
+  end
+
 end
