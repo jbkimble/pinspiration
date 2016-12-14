@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -52,7 +52,7 @@ end
 group :test do
   gem 'vcr' #for testing our api's
   gem 'webmock' #used in conjuction with vcr to intercept out web calls
-  
+
 end
 
 group :development do
