@@ -20,15 +20,20 @@ class PermissionsService
 
     def admin_permissions
       return true if controller == "sessions" && action.in?(%w(index new create destroy))
-      return true if controller == "users" && action.in?(%w(show))
+      return true if controller == "users" && action.in?(%w(show edit update new create))
+      return true if controller == "comments" && action.in?(%w(index show edit update new create destroy))
+      return true if controller == "profile" && action.in?(%w(show))
     end
 
     def user_permissions
       return true if controller == "sessions" && action.in?(%w(index new create destroy))
-      return true if controller == "users" && action.in?(%w(show))
+      return true if controller == "users" && action.in?(%w(show edit update new create))
+      return true if controller == "comments" && action.in?(%w(index show edit update new create destroy))
+      return true if controller == "profile" && action.in?(%w(show))
     end
 
     def guest_permissions
-      return true if controller == "sessions" && action.in?(%w(index new))
+      return true if controller == "sessions" && action.in?(%w(index new create))
+      return true if controller == "users" && action.in?(%w(new create))
     end
 end
