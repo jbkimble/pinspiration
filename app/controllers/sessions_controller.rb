@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  def index
+  end
+
   def new
   end
 
@@ -9,11 +12,14 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to dashboard_path
     else
-      flash.now[:error] = "Login failed, please try again."
+      flash.now[:warning] = "Login failed, please try again."
       render :new
     end
   end
 
   def destroy
+    session.clear
+    flash[:success] = "You have successfully logged out."
+    redirect_to root_path
   end
 end
