@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   root 'sessions#index'
 
+  resources :comments
   get '/dashboard', to: 'users#show'
   get '/users/new', to: 'users#new', as: 'new_user'
   get '/users/edit', to: 'users#edit'
