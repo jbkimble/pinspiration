@@ -13,6 +13,7 @@ describe 'As a logged in user' do
     fill_in 'Password Confirmation', with: '123'
 
     click_on 'Create Account'
+    binding.pry
   end
 
   context 'I can visit my account page' do

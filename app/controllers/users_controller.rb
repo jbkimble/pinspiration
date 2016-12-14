@@ -34,9 +34,9 @@ class UsersController < ApplicationController
       redirect_to profile_path
     end
   end
-  
+
   private
     def user_params
-      params.require(:user).permit(:name, :email, :username, :password, :phone)
+      params.require(:user).permit(:name, :email, :username, :password, :phone, :avatar)
     end
 end
