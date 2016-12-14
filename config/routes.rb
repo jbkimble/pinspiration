@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   root 'sessions#index'
+
+  get '/users/new', to: 'users#new', as: 'new_user'
+  post 'users', to: 'users#create'
 end
