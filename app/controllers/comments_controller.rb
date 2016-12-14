@@ -20,6 +20,27 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    if @comment.update(comment_params)
+      redirect_to comments_path
+      flash[:sucess] = "Your comment has been updated."
+    else
+      flash.now[:error] = "Please try again."
+      render :edit
+    end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.delete
+    flash[:success] = "Your comment has been deleted."
+    redirect_to comments_path
+  end
 
   private
 

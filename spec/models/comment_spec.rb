@@ -9,7 +9,6 @@ RSpec.describe Comment, type: :model do
         expect(comment).to be_invalid
       end
       it "is invalid without user_id" do
-        user = create(:user)
         comment = Comment.new(content: "this is content")
         expect(comment).to be_invalid
       end
@@ -18,6 +17,13 @@ RSpec.describe Comment, type: :model do
       it "is valid with all attributes" do
         user = create(:user)
         comment = Comment.new(content: "content", user_id: user.id)
+        expect(comment).to be_valid
+      end
+    end
+    context "relationships" do
+      it "belongs to a user" do
+        comment = create(:comment)
+        expect(comment).to respond_to(:user)
       end
     end
   end
