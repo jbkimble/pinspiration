@@ -11,10 +11,11 @@ describe "User can leave comment" do
 
     click_on "New Comment"
 
-    fill_in "Comment", with: comment
+    fill_in "comment[content]", with: comment
 
-    click_on "Submit Comment"
+    click_on "Create Comment"
 
     expect(page).to have_content("my comment")
+    expect(page).to have_content("Your comment has been saved.")
   end
 end

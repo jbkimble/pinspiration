@@ -2,6 +2,10 @@
 
 <h2>Comments</h2>
 
+<% @comments.each do |comment| %>
+  <%= comment.content  %>
+  <% end %>
+
 <%= link_to "New Comment", new_comment_path %>
 
 </div>
