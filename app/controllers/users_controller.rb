@@ -19,6 +19,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(session[:user_id])
+  end
+
+  def update
+    @user = User.find(session[:user_id])
+    @user.update(user_params)
+    if @user.save
+      flash[:success] = "You account was successfully updated"
+      redirect_to profile_path
+    else
+      flash[:failure] = "Your account failed to update"
+      redirect_to profile_path
+    end
+  end
+  
   private
     def user_params
       params.require(:user).permit(:name, :email, :username, :password, :phone)
