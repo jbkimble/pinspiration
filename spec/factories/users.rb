@@ -3,7 +3,7 @@ FactoryGirl.define do
     name "MyString"
     email "MyString"
     username "MyString"
-    password_digest "MyString"
+    password "MyString"
     phone "MyString"
   end
 end
