@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   root 'sessions#index'
 
-
   resources :comments
 
   get '/dashboard', to: 'users#show'
@@ -15,5 +14,5 @@ Rails.application.routes.draw do
   get '/users/edit', to: 'users#edit'
   resources :users, only: [:update]
   post 'users', to: 'users#create'
-
+  
 end
