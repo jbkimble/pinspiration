@@ -9,5 +9,6 @@ FactoryGirl.define do
     end
     password "MyString"
     phone "MyString"
+    roles {[FactoryGirl.create(:role, name: "user")]}
   end
 end
