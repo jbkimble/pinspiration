@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161214202539) do
+ActiveRecord::Schema.define(version: 20161214213545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boards", force: :cascade do |t|
+    t.text     "name"
+    t.boolean  "private",    default: false
+    t.integer  "user_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "slug"
+    t.index ["user_id"], name: "index_boards_on_user_id", using: :btree
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -47,8 +57,10 @@ ActiveRecord::Schema.define(version: 20161214202539) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "avatar"
+    t.string   "slug"
   end
 
+  add_foreign_key "boards", "users"
   add_foreign_key "comments", "users"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"

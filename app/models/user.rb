@@ -9,6 +9,13 @@ class User < ApplicationRecord
   has_many :roles, through: :user_roles
   has_many :user_roles
   has_many :comments
+  has_many :boards
+
+  after_save :generate_slug
+  
+  def generate_slug
+    self.slug = name.parameterize
+  end
 
   def registered?
     roles.exists?(name: "user")
@@ -16,7 +23,5 @@ class User < ApplicationRecord
 
   def admin?
     roles.exists?(name: "admin")
-  end
-
-
+  end 
 end
