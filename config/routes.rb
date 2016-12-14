@@ -10,13 +10,15 @@ Rails.application.routes.draw do
 
   resources :comments
 
+  resources :pins, path: 'pin'
+
   resources :users, as: :user, path: ':user'
 
   namespace :users, as: :user, path: ':user' do
     resources :boards, as: :board, path: ':board'
   end
 
-  # get '/dashboard', to: 'users#show'
+  get '/dashboard', to: 'users#show'
   # get '/users/new', to: 'users#new', as: 'new_user'
   # get '/users/edit', to: 'users#edit'
   # post 'users', to: 'users#create'
