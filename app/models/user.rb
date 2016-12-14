@@ -4,4 +4,7 @@ class User < ApplicationRecord
   validates :phone, presence: true
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
+
+  has_many :roles, through: :user_roles
+  has_many :user_roles
 end
