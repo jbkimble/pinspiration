@@ -1,18 +1,29 @@
+<div class="container update-form">
+  <h3 class="form-h3 text-center">Update Account Information</h3><br>
 <%= form_for @user do |f| %>
-  <%= f.label :avatar %>
-  <%= f.text_field :avatar %>
+<div class="form-group">
+  <p><%= f.text_field :name, class: "form-control login-items", placeholder: "Name", id: "Name" %></p>
+</div>
+<div class="form-group">
+  <%= f.text_field :email, class: "form-control login-items", placeholder: "Email", id: "Email" %>
+</div>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<div class="form-group">
+  <%= f.text_field :phone, class: "form-control login-items", placeholder: "Phone", id: "Phone" %>
+</div>
 
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+<div class="form-group">
+  <%= f.text_field :avatar, class: "form-control login-items", placeholder: "Avatar", id: "Avatar" %>
+</div>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+<div class="form-group">
+  <%= f.password_field :password, class: "form-control login-items", placeholder: "Password", id: "Password" %>
+</div>
 
-  <%= f.label :phone %>
-  <%= f.text_field :phone %>
-
-  <%= f.submit "Update Profile" %>
+<div class="form-group">
+  <%= f.password_field :password_confirmation, class: "form-control login-items", placeholder: "Confirm password", id: "Password Confirmation" %>
+</div>
+<p>
+  <button type="submit" class="btn btn-danger update-button">Update Profile</button><%= link_to "Cancel", root_path, class: "btn btn-default link-to-login cancel-button" %>
 <% end %>
+</div>
