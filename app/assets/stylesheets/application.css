@@ -13,3 +13,82 @@
  *= require_tree .
  *= require_self
  */
+.body {
+   font-family: Helvetica Neue;
+   font-size: 12px;
+ }
+
+.form-h3 {
+  font-weight: bold;
+ }
+
+.login-page {
+  background-color: #f5f5f5;
+}
+.form-link a{
+  color: #64686d;
+  font-weight: bold;
+}
+
+.form-link a:hover{
+  color: #aeb3ba;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-panel-shadow {
+  box-shadow: 1px 1px 2px #aeb3ba;
+  margin-top: 100px;
+}
+
+.signup-panel-shadow {
+  box-shadow: 1px 1px 2px #aeb3ba;
+  margin-top: 50px;
+}
+
+.login-items {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.short-hr {
+  width: 50%;
+}
+
+.link-to-login {
+  color: white;
+  background-color: #64686d;
+  border-color: #64686d;
+  width: 50%;
+}
+
+.link-to-login:hover {
+  color: white;
+  background-color: #6b6d70;
+  border-color: #64686d;
+}
+
+.panel-pad {
+  padding-bottom: 20px;
+}
+
+.update-form {
+  width: 50%;
+  margin-top: 50px;
+}
+
+.tiny-text {
+  font-size: 9px;
+}
+
+.update-button {
+  width: 25%;
+  margin-left: 45px;
+}
+
+.cancel-button {
+  width: 25%;
+  float: right;
+  margin-right: 45px;
+}

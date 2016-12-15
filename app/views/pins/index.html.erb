@@ -1,0 +1,13 @@
+<% if current_user %>
+<%= link_to "Logout", logout_path %>
+<% else %>
+<%= link_to "Login", login_path %>
+<%= link_to "Create Account", new_user_path %>
+<% end %>
+
+
+<div class="container">
+<% @pins.each do |pin| %>
+  <%= pin.name %>
+  <% end %>
+</div>
