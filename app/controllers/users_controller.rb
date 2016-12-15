@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       @user.roles << Role.find(2)
       flash[:success] = "Welcome #{@user.name}"
       session[:user_id] = @user.id
-      redirect_to dashboard_path
+      redirect_to root_path
     else
       flash[:failure] = "Account creation failed, please try again"
       redirect_to root_path
@@ -43,6 +43,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :username, :password, :phone, :avatar)
+      params.require(:user).permit(:id, :name, :email, :username, :password, :phone, :avatar)
     end
 end
