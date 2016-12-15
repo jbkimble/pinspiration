@@ -1,7 +1,9 @@
-class BoardsController < ApplicationController
+class Users::BoardsController < ApplicationController
 
   def index
-    # @user = 
+    @board = Board.find(params[:slug])
+  end
+  def show
     @board = Board.find(params[:slug])
   end
 

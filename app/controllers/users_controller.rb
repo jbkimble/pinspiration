@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
 
   def index
-    user = current_user
+    user = User.find_by(username: params[:user])
     @boards = user.boards.all
   end
 
   def show
-    user = current_user
+    user = User.find_by(username: params[:user])
     @boards = user.boards.all
   end
 
