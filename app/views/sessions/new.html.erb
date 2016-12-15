@@ -1,32 +1,31 @@
+<body class="login-page">
 <div class="container">
   <div class ="row">
     <div class = "text-center">
     <div class="col-md-4">
     </div>
     <div class="col-md-4">
-      <div class="panel panel-default">
-      <div class="panel-heading panel-bg">
+      <div class="panel panel-default panel-shadow">
+      <div class="panel-body">
         Pinspiration
       </div>
-      <div class="panel-body">
+      <div class="panel-footer">
   <form>
-    <h2>Log in to see more</h2>
+    <h3 class="form-h3">Log in to see more</h3>
 
-    <%= form_tag login_path, method: :post, class: "form-group" do %>
+  <br><%= form_tag login_path, method: :post, class: "form-group" do %>
     <div class="form-group">
       <p><%= text_field_tag :email, params[:email], class: "form-control", placeholder: "Email" %></p>
     </div>
     <div class="form-group">
       <p><%= password_field_tag :password, nil, class: "form-control", placeholder: "Password" %></p>
     </div>
-    <button type="submit" class="btn btn-danger">Login</button></p>
-    <% end %><br>
-
-    <br>
+    <button type="submit" class="btn btn-danger login-button">Login</button></p>
+    <% end %>
   </form>
-  <%= link_to "Forgot your password?", "/" %>
-  <hr>
-  Need an account? <%= link_to "Sign Up", new_user_path %>
+  <span class="form-link"><%= link_to "Forgot your password?", "/" %></span>
+  <hr class="short-hr">
+  Need an account? <span class="form-link"><%= link_to "Sign Up", new_user_path %></span>
 </div>
 </div>
 </div>
@@ -34,3 +33,4 @@
 </div>
 </div>
 </div>
+</body>

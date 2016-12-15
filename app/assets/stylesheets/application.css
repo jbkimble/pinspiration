@@ -13,6 +13,38 @@
  *= require_tree .
  *= require_self
  */
-.panel-bg {
-  background-color: white;
+.body {
+   font-family: Helvetica Neue;
+   font-size: 12px;
+ }
+
+.form-h3 {
+  font-weight: bold;
+ }
+
+.login-page {
+  background-color: #f5f5f5;
+}
+.form-link a{
+  color: #64686d;
+  font-weight: bold;
+}
+
+.form-link a:hover{
+  color: #aeb3ba;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.panel-shadow {
+  box-shadow: 1px 1px 2px #aeb3ba;
+  margin-top: 100px;
+}
+
+.login-button {
+  width: 100%;
+}
+
+.short-hr {
+  width: 50%;
 }
