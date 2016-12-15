@@ -10,7 +10,6 @@
               Pinspiration
             </div>
             <div class="panel-footer panel-pad">
-              <form>
                 <h3 class="form-h3">Log in to see more</h3>
                 <br>
                 <%= form_tag login_path, method: :post, class: "form-group" do %>
@@ -22,7 +21,6 @@
                   </div>
                   <button type="submit" class="btn btn-danger login-items">Login</button></p>
                 <% end %>
-              </form>
               <span class="form-link"><%= link_to "Forgot your password?", "/" %></span>
               <hr class="short-hr">
               Need an account? <span class="form-link"><%= link_to "Sign Up", new_user_path %></span>
