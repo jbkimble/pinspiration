@@ -2,10 +2,10 @@ class Board < ApplicationRecord
   belongs_to :user
   validates :name, presence: true
 
-  after_save :generate_slug
+  before_validation :generate_slug
 
   def generate_slug
-    self.slug = name.parameterize
+    self.slug = name.parameterize if name
   end
 
 end
