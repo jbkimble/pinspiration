@@ -3,6 +3,8 @@ class Pin < ApplicationRecord
   validates :source, presence: true
   validates :image, presence: true
 
-  has_many :boards
-  has_many :comments
+  has_many :pin_boards
+  has_many :boards, through: :pin_boards
+  has_many :pin_comments 
+  has_many :comments, through: :pin_comments
 end
