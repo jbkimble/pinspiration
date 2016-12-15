@@ -3,7 +3,8 @@
 <%= link_to "Create Account", new_user_path %>
 
 
-
+<div class="container">
 <% @pins.each do |pin| %>
   <%= pin.name %>
   <% end %>
+</div>
