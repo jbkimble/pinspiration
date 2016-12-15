@@ -34,16 +34,16 @@ describe 'As a logged in user' do
       click_on "Edit Account Info"
       expect(current_path).to eq(edit_user_path(user))
       fill_in "Name", with: "Smaug"
-      fill_in "Username", with: "Firebreather46"
+      fill_in "Email", with: "Firebreather46@gmail.com"
 
       click_on "Update Profile"
 
       expect(current_path).to eq(profile_path)
       expect(page).to have_content("Smaug")
-      expect(page).to have_content("Firebreather46")
+      expect(page).to have_content("Firebreather46@gmail.com")
 
-      expect(page).to_not have_content("Bilbo")
       expect(page).to_not have_content("Bilbo Baggins")
+      expect(page).to_not have_content("b@shire.com")
     end
   end
 end
