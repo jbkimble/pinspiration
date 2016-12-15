@@ -1,0 +1,6 @@
+<%= link_to "Logout", logout_path %>
+
+<h2> My Boards </h2>
+<% @boards.each do |board| %>
+<%= board.name %>
+<% end %>

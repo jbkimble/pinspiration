@@ -1,0 +1,9 @@
+<h1><%= @user.username %> Account Information </h1>
+<img src="<% @user.avatar %>" alt="User photo">
+<p>Name: <%= @user.name %></p>
+<p>Username: <%= @user.username %></p>
+<p>Email: <%= @user.email %></p>
+<p>Phone: <%= @user.phone %></p>
+<p>Password: ******* </p>
+
+<%= link_to "Edit Account Info", edit_user_path(@user.id) %>
