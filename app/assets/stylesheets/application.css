@@ -36,9 +36,14 @@
   font-weight: bold;
 }
 
-.panel-shadow {
+.login-panel-shadow {
   box-shadow: 1px 1px 2px #aeb3ba;
   margin-top: 100px;
+}
+
+.signup-panel-shadow {
+  box-shadow: 1px 1px 2px #aeb3ba;
+  margin-top: 50px;
 }
 
 .login-items {
@@ -49,4 +54,17 @@
 
 .short-hr {
   width: 50%;
+}
+
+.link-to-login {
+  color: white;
+  background-color: #64686d;
+  border-color: #64686d;
+  width: 50%;
+}
+
+.link-to-login:hover {
+  color: white;
+  background-color: #6b6d70;
+  border-color: #64686d;
 }

@@ -1,24 +1,47 @@
-<%= form_for @user do |f| %>
-  <%= f.label :avatar %>
-  <%= f.text_field :avatar %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-
-  <%= f.label :phone %>
-  <%= f.text_field :phone %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirmation, "Password Confirmation" %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= f.submit "Create Account" %>
-<% end %>
+<body class="login-page">
+  <div class="container">
+    <div class ="row">
+      <div class = "text-center">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default signup-panel-shadow">
+            <div class="panel-body">
+              Pinspiration
+            </div>
+            <div class="panel-footer">
+              <form>
+                <h3 class="form-h3">Sign up to see more</h3>
+                <br>
+                <%= form_for @user, class: "form-group" do |f| %>
+                <div class="form-group">
+                  <%= f.text_field :name, class: "form-control login-items", placeholder: "Name" %>
+                </div>
+                <div class="form-group">
+                  <%= f.text_field :username, class: "form-control login-items", placeholder: "Username" %>
+                </div>
+                <div class="form-group">
+                  <%= f.text_field :email, class: "form-control login-items", placeholder: "Email" %>
+                </div>
+                <div class="form-group">
+                  <%= f.text_field :phone, class: "form-control login-items", placeholder: "Phone number" %>
+                </div>
+                <div class="form-group">
+                  <%= f.password_field :password, class: "form-control login-items", placeholder: "Password" %>
+                </div>
+                <div class="form-group">
+                  <%= f.password_field :password_confirmation, class: "form-control login-items", placeholder: "Confirm password" %>
+                </div>
+                <button type="submit" class="btn btn-danger login-items">Create Account</button></p>
+                <% end %>
+                <hr class="short-hr">
+                <p>Already a member?</p>
+                <%= link_to "Log in", login_path, class: "btn btn-default link-to-login" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+          </div>
+        </div>
+      </div>
+    </body>
