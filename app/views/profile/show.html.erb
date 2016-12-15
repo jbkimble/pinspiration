@@ -6,4 +6,4 @@
 <p>Phone: <%= @user.phone %></p>
 <p>Password: ******* </p>
 
-<%= link_to "Edit Account Info", users_edit_path %>
+<%= link_to "Edit Account Info", edit_user_path(@user.id) %>

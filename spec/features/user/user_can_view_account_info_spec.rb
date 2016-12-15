@@ -29,10 +29,10 @@ describe 'As a logged in user' do
 
   context 'I can edit my account information' do
     scenario 'the edits show up on my profile page' do
+      user = User.first
       visit profile_path
       click_on "Edit Account Info"
-
-      expect(current_path).to eq(users_edit_path)
+      expect(current_path).to eq(edit_user_path(user))
       fill_in "Name", with: "Smaug"
       fill_in "Username", with: "Firebreather46"
 

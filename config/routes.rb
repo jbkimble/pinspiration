@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   resources :comments
 
   resources :pins, path: 'pin'
-
-  resources :users, as: :user, path: ':user'
+  resources :users, only:[:new, :create, :edit, :update]
+  resources :users, as: :user, path: ":user", except:[:new, :create, :edit, :update]
 
   namespace :users, as: :user, path: ':user' do
     resources :boards, as: :board, path: ':board'

@@ -19,7 +19,7 @@ describe 'As a User' do
 
       expect(page).to have_content('Welcome Bilbo Baggins')
       expect(page).to have_content('Bilbo')
-      expect(current_path).to eq(dashboard_path)
+      expect(current_path).to eq(root_path)
     end
   end
 end

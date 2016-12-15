@@ -10,7 +10,7 @@ describe "a user can log in" do
 
     click_button "Login"
 
-    expect(current_path).to eq(dashboard_path)
+    expect(current_path).to eq(root_path)
     expect(page).to have_content("Successfully logged in as #{user.name}")
     expect(page).to have_content("Logout")
     expect(page).to_not have_content("Login")

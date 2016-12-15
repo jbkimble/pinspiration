@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       flash[:success] = "Successfully logged in as #{@user.name}!"
       session[:user_id] = @user.id
-      redirect_to dashboard_path
+      redirect_to root_path
     else
       flash.now[:warning] = "Login failed, please try again."
       render :new
