@@ -68,3 +68,7 @@
   background-color: #6b6d70;
   border-color: #64686d;
 }
+
+.panel-pad {
+  padding-bottom: 20px;
+}
