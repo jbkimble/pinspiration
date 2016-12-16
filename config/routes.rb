@@ -5,22 +5,20 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
-  # root 'sessions#index'
   root 'pins#index'
 
   resources :comments
 
   resources :pins, path: 'pin'
-  resources :users, only:[:new, :create, :edit, :update]
-  resources :users, as: :user, path: ":user", only:[:index, :show]
 
-  namespace :users, as: :user, path: ':user' do
-    resources :boards, as: :board, path: ':board'
+  resources :users, only: [:new, :create, :edit, :update]
+
+  get '/:user', to: 'users#show', as: 'show_user'
+
+  namespace :users, as: :user, path: ":user" do
+    get '/:board', to: 'boards#show', as: 'board'
   end
 
   get '/dashboard', to: 'users#show'
-  # get '/users/new', to: 'users#new', as: 'new_user'
-  # get '/users/edit', to: 'users#edit'
-  # post 'users', to: 'users#create'
 
 end
