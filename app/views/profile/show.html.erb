@@ -1,5 +1,9 @@
-<h1><%= current_user.username %> Account Information </h1>
-<img src="<% current_user.avatar %>" alt="User photo">
+<div class="container text-center">
+  <%= link_to edit_user_path(current_user) do %>
+    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+  <% end %>
+<h2 class="profile-h2"><%= current_user.username %></h2>
+<%= image_tag(current_user.avatar, class: "avatar-style") %>
 <p>Name: <%= current_user.name %></p>
 <p>Username: <%= current_user.username %></p>
 <p>Email: <%= current_user.email %></p>
@@ -7,3 +11,4 @@
 <p>Password: ******* </p>
 
 <%= link_to "Edit Account Info", edit_user_path(current_user) %>
+</div>

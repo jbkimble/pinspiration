@@ -102,3 +102,20 @@
   padding-top: 6px;
   padding-bottom: 8px;
 }
+
+.avatar-style {
+  margin-top: 20px;
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  float: right;
+}
+
+.profile-h2 {
+  float: left;
+}
+
+.glyphicon-wrench {
+  height: 50px;
+  width: 50px;
+}
