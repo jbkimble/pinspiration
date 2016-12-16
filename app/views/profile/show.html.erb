@@ -1,9 +1,9 @@
-<h1><%= @user.username %> Account Information </h1>
-<img src="<% @user.avatar %>" alt="User photo">
-<p>Name: <%= @user.name %></p>
-<p>Username: <%= @user.username %></p>
-<p>Email: <%= @user.email %></p>
-<p>Phone: <%= @user.phone %></p>
+<h1><%= current_user.username %> Account Information </h1>
+<img src="<% current_user.avatar %>" alt="User photo">
+<p>Name: <%= current_user.name %></p>
+<p>Username: <%= current_user.username %></p>
+<p>Email: <%= current_user.email %></p>
+<p>Phone: <%= current_user.phone %></p>
 <p>Password: ******* </p>
 
-<%= link_to "Edit Account Info", edit_user_path(@user.id) %>
+<%= link_to "Edit Account Info", edit_user_path(current_user) %>
