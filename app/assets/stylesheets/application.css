@@ -43,7 +43,7 @@
 
 .signup-panel-shadow {
   box-shadow: 1px 1px 2px #aeb3ba;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .login-items {
@@ -91,4 +91,14 @@
   width: 25%;
   float: right;
   margin-right: 45px;
+}
+
+.logo {
+  font-family: 'Mr Dafoe', cursive;
+  color: #d9534f;
+}
+
+.less-padding {
+  padding-top: 6px;
+  padding-bottom: 8px;
 }
