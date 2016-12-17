@@ -157,3 +157,19 @@
 .drop-pad {
   margin-top: 50px;
 }
+
+.profile-link {
+  float: left;
+  color: #a5a9af;
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+.profile-link:hover {
+  text-decoration: none;
+  color: #a5a9af;
+}
+
+.left-pad {
+  padding-left: 50px;
+}

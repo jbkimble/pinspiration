@@ -12,26 +12,25 @@
   <%= link_to edit_user_path(current_user) do %>
     <span class="glyphicon glyphicon-option-horizontal wrench-style hover-circle" aria-hidden="true"></span>
   <% end %>
-<div class="profile-info">
-  <h1 class="profile-h1"><%= current_user.username %></h1>
-  <%= image_tag(current_user.avatar, class: "avatar-style") %><br>
-
-  <div class="row text-left">
-    <div class="col-md-5">
+  <div class="profile-info">
+    <h1 class="profile-h1"><%= current_user.username %></h1>
+    <% if current_user.avatar %>
+      <%= image_tag(current_user.avatar, class: "avatar-style") %><br>
+    <% else %>
+      <%= image_tag("https://s.pinimg.com/images/user/default_444.png", class: "avatar-style") %>
+    <% end %>
+    <div class="row text-left">
+      <div class="col-md-5">
+      </div>
+      <div class="col-md-1">
+        <p class="num-follow">0</p>
+        <p class="follow">Followers</p>
+      </div>
+      <div class="col-md-1">
+        <p class="num-follow">0</p>
+        <p class="follow">Following</p>
+      </div>
     </div>
-    <div class="col-md-1">
-      <p class="num-follow">0</p>
-      <p class="follow">followers</p>
-    </div>
-    <div class="col-md-1">
-      <p class="num-follow">0</p>
-      <p class="follow">following</p>
-    </div>
-<!-- <p>Name: <%= current_user.name %></p>
-<p>Username: <%= current_user.username %></p>
-<p>Email: <%= current_user.email %></p>
-<p>Phone: <%= current_user.phone %></p>
-<p>Password: ******* </p> -->
-</div>
-</div>
+    <p><a href="#" class="profile-link">Boards</a> <a href="#" class="profile-link left-pad">Pins</a></p>
+  </div>
 </div>
