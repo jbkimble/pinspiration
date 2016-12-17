@@ -1,17 +1,16 @@
 <div class="container text-center profile">
   <div class="dropdown">
-  <%#= link_to edit_user_path(current_user) do %>
-  <span class="glyphicon glyphicon-wrench wrench-style hover-circle" data-toggle="dropdown"></span>
-  <%# end %>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
-    <%= link_to edit_user_path(current_user) do %>
-  <span class="glyphicon glyphicon-option-horizontal wrench-style hover-circle" aria-hidden="true"></span>
+      <span class="glyphicon glyphicon-wrench wrench-style hover-circle" data-toggle="dropdown"></span>
+      <ul class="dropdown-menu drop-pad" aria-labelledby="dropdownMenu1">
+      <li><a href="#">Action</a></li>
+      <li><a href="#">Another action</a></li>
+      <li><a href="#">Something else here</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="#">Separated link</a></li>
+    </ul>
+  </div>
+  <%= link_to edit_user_path(current_user) do %>
+    <span class="glyphicon glyphicon-option-horizontal wrench-style hover-circle" aria-hidden="true"></span>
   <% end %>
 <div class="profile-info">
   <h1 class="profile-h1"><%= current_user.username %></h1>
