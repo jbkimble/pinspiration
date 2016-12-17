@@ -16,34 +16,17 @@ describe 'As a logged in user' do
     click_on 'Create Account'
   end
 
-  context 'I can visit my account page' do
-    scenario 'shows my account information' do
-      visit profile_path
-      expect(page).to have_content('Bilbo')
-      expect(page).to have_content('Bilbo Baggins')
-      expect(page).to have_content('b@shire.com')
-      expect(page).to have_content('555-123-4567')
-      expect(page).to have_content('*******')
-    end
-  end
-
   context 'I can edit my account information' do
-    scenario 'the edits show up on my profile page' do
+    scenario 'my account information changes' do
       user = User.first
-      visit profile_path
-      click_on "Edit Account Info"
-      expect(current_path).to eq(edit_user_path(user))
-      fill_in "Name", with: "Smaug"
-      fill_in "Email", with: "Firebreather46@gmail.com"
+      visit edit_user_path(user)
+      fill_in "Avatar", with: "bilbo.jpg"
+
 
       click_on "Update Profile"
 
       expect(current_path).to eq(profile_path)
-      expect(page).to have_content("Smaug")
-      expect(page).to have_content("Firebreather46@gmail.com")
-
-      expect(page).to_not have_content("Bilbo Baggins")
-      expect(page).to_not have_content("b@shire.com")
+      expect(page).to have_xpath("//img[contains(@src,'bilbo.jpg')]")
     end
   end
 end
