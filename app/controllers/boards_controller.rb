@@ -28,7 +28,7 @@ class BoardsController < ApplicationController
       redirect_to user_board_path(@board.user.slug, @board.slug)
     else
       flash[:failure] = "Board update failed, please try again"
-      redirect_to edit_board_path(@board.user.slug, @board.slug)
+      redirect_to edit_board_path(@board)
     end
   end
 
