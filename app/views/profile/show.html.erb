@@ -1,14 +1,18 @@
-<div class="container text-center">
+<div class="container text-center profile">
   <%= link_to edit_user_path(current_user) do %>
-    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+  <span class="glyphicon glyphicon-wrench wrench-style" aria-hidden="true"></span>
   <% end %>
-<h2 class="profile-h2"><%= current_user.username %></h2>
-<%= image_tag(current_user.avatar, class: "avatar-style") %>
+  <%= link_to edit_user_path(current_user) do %>
+  <span class="glyphicon glyphicon-option-horizontal wrench-style" aria-hidden="true"></span>
+  <% end %>
+<div class="profile-info">
+  <h2 class="profile-h2"><%= current_user.username %></h2>
+  <%= image_tag(current_user.avatar, class: "avatar-style") %><br>
 <p>Name: <%= current_user.name %></p>
 <p>Username: <%= current_user.username %></p>
 <p>Email: <%= current_user.email %></p>
 <p>Phone: <%= current_user.phone %></p>
 <p>Password: ******* </p>
 
-<%= link_to "Edit Account Info", edit_user_path(current_user) %>
+</div>
 </div>

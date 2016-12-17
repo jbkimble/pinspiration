@@ -115,7 +115,19 @@
   float: left;
 }
 
-.glyphicon-wrench {
-  height: 50px;
-  width: 50px;
+.wrench-style {
+  font-size: 30px;
+  color: #6b6d70;
+  float:left;
+  padding-right: 50px;
+}
+
+.profile {
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-top: 50px;
+}
+
+.profile-info {
+  padding-top: 50px;
 }
