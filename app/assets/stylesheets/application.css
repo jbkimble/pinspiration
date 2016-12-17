@@ -118,7 +118,7 @@
 
 .wrench-style {
   font-size: 30px;
-  color: #6b6d70;
+  color: #c3c5c9;
   float:left;
   margin-right: 50px;
   padding-top: 10px;
@@ -131,7 +131,7 @@
   height: 50px;
   width: 50px;
   border-radius: 100px;
-  background-color: #d9dce0;
+  background-color: #edeff2;
 }
 
 .profile {
@@ -150,13 +150,13 @@
 }
 
 .follow {
-  color: #a5a9af;
+  color: #c3c5c9;
   font-weight: bold;
 }
 
 .follow:hover {
   text-decoration: none;
-  color: #a5a9af;
+  color: #cdcfd3;
 }
 
 .drop-pad {
@@ -165,14 +165,14 @@
 
 .profile-link {
   float: left;
-  color: #a5a9af;
+  color: #c3c5c9;
   font-weight: bold;
   font-size: 1.25em;
 }
 
 .profile-link:hover {
   text-decoration: none;
-  color: #a5a9af;
+  color: #cdcfd3;
 }
 
 .left-pad {
