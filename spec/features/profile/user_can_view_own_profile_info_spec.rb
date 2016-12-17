@@ -8,15 +8,12 @@ describe "User can see profile" do
 
     visit profile_path
 
-    expect(page).to have_content(user.name)
-    expect(page).to have_content(user.email)
-    expect(page).to_not have_content(user2.email)
-    expect(page).to have_content(user.phone)
+
     expect(page).to have_content(user.username)
     expect(page).to_not have_content(user2.username)
-    expect(page).to have_content("Account Information")
-    expect(page).to have_link("Edit Account Info", href: edit_user_path(user))
-    expect(page).to_not have_link("Edit Account Info", href: edit_user_path(user2))
+    expect(page).to have_content(user.avatar)
+    expect(page).to have_link(nil, href: edit_user_path(user))
+    expect(page).to_not have_link(nil, href: edit_user_path(user2))
   end
 
   scenario "a visitor tries to view profile page" do
