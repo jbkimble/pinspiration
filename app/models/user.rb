@@ -10,6 +10,11 @@ class User < ApplicationRecord
   has_many :user_roles
   has_many :comments
   has_many :boards
+  has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id"
+
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
 
   before_validation :generate_slug
 
@@ -24,4 +29,17 @@ class User < ApplicationRecord
   def admin?
     roles.exists?(name: "admin")
   end
+
+  def follow(someuser)
+    active_relationships.create(followed_id: someuser.id)
+  end
+
+  def unfollow(someuser)
+    active_relationships.find_by(followed_id: someuser.id).destroy
+  end
+
+  def following?(someuser)
+    following.include?(someuser)
+  end
+
 end
