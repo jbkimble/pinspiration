@@ -32,6 +32,7 @@ gem 'rb-readline' #make pry work
 gem 'figaro' #hide our stuff
 gem 'serializer' #api serializers
 gem 'faraday' #for http requests
+gem 'faker' # for seed data
 
 
 group :development, :test do
@@ -39,7 +40,6 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry' #duh
   gem 'launchy' #because restarting the server every time sucks
-  gem 'faker' # for seed data
 
   gem 'rspec-rails' #testing suite
   gem 'capybara' #feature testing
