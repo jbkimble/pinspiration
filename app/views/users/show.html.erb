@@ -1,6 +1,39 @@
 <%= link_to "Logout", logout_path %>
 
-<h2> My Boards </h2>
-<% @boards.each do |board| %>
-<%= board.name %>
-<% end %>
+<div class="container text-center profile">
+  <%= link_to edit_user_path(current_user) do %>
+    <span class="glyphicon glyphicon-wrench wrench-style hover-circle" aria-hidden="true"></span>
+  <% end %>
+  <div class="dropdown">
+      <span class="glyphicon glyphicon-option-horizontal wrench-style hover-circle" data-toggle="dropdown"></span>
+      <ul class="dropdown-menu drop-pad" aria-labelledby="dropdownMenu1">
+      <li><a href="#">Action</a></li>
+      <li><a href="#">Another action</a></li>
+      <li><a href="#">Something else here</a></li>
+      <li role="separator" class="divider"></li>
+      <li><%= link_to "Logout", logout_path %></li>
+    </ul>
+  </div>
+
+  <div class="profile-info">
+    <h1 class="profile-h1"><%= @user.username %></h1>
+    <% if @user.avatar %>
+      <%= image_tag(@user.avatar, class: "avatar-style") %><br>
+    <% else %>
+      <%= image_tag("https://s.pinimg.com/images/user/default_444.png", class: "avatar-style") %>
+    <% end %>
+    <div class="row text-left">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-2">
+        <p class="num-follow">0</p>
+        <p><a href="#" class="follow">Followers</a></p>
+      </div>
+      <div class="col-md-2">
+        <p class="num-follow">0</p>
+        <p><a href="#" class="follow">Following</a></p>
+      </div>
+    </div>
+    <p><a href="#" class="profile-link">Boards</a> <a href="#" class="profile-link left-pad">Pins</a></p>
+  </div>
+</div>
