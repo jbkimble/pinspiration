@@ -32,6 +32,15 @@ class BoardsController < ApplicationController
     end
   end
 
+  def destroy
+    @user = current_user
+    @board = Board.find(params[:id])
+    @board.destroy
+
+    flash[:success] = "You have successfully deleted this board."
+    redirect_to show_user_path(@user.slug)
+  end
+
 
   private
 

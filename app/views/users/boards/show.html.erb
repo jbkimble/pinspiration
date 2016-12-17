@@ -2,5 +2,6 @@
 
   <h2><%= @board.name %> by <%= @board.user.name %></h2>
   <%= link_to "Edit Board", edit_board_path(@board) %>
+  <%= link_to "Delete Board", board_path(@board), method: "delete" %>
 
 </div>

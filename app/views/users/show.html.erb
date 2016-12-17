@@ -40,5 +40,8 @@
   </div>
   <div class="boards-grid">
     <%= link_to "Create New Board", new_board_path %>
+    <% @user.boards.each do |board| %>
+      <%= link_to "#{board.name}", user_board_path(@user.slug, board.slug) %>
+      <% end %>
   </div>
 </div>
