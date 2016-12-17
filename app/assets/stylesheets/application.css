@@ -154,6 +154,11 @@
   font-weight: bold;
 }
 
+.follow:hover {
+  text-decoration: none;
+  color: #a5a9af;
+}
+
 .drop-pad {
   margin-top: 50px;
 }
