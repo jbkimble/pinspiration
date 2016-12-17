@@ -1,0 +1,10 @@
+<div class="container">
+  <h2>Create New Board</h2>
+
+  <%= form_for @board do |f| %>
+    <%=f.label :name  %>
+    <%=f.text_field :name  %>
+
+    <%= f.submit %>
+  <% end %>
+</div>

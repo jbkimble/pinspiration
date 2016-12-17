@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :boards, only: [:new, :create, :edit, :update, :destroy]
+  
   get '/profile', to: 'profile#show'
 
   get '/login', to: 'sessions#new'
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
   namespace :users, as: :user, path: ":user" do
     get '/:board', to: 'boards#show', as: 'board'
   end
+
 
   get '/dashboard', to: 'users#show'
 

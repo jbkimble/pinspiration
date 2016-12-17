@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
 
-  def index
-    user = User.find_by(username: params[:user])
-    @boards = user.boards.all
-  end
+  # def index
+  #   user = User.find_by(username: params[:user])
+  #   @boards = user.boards.all
+  # end
 
   def show
-    @user = User.find_by(username: params[:user])
-    @boards = @user.boards.all
+    # binding.pry
+    @user = User.find_by(slug: params[:user])
   end
 
   def new
