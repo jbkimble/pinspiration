@@ -19,9 +19,10 @@ describe 'As a logged in user' do
   context 'I can edit my account information' do
     scenario 'my account information changes' do
       user = User.first
-      visit edit_user_path(user)
-      fill_in "Avatar", with: "bilbo.jpg"
 
+      visit edit_user_path(user)
+
+      fill_in "Avatar", with: "bilbo.jpg"
 
       click_on "Update Profile"
 
