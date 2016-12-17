@@ -102,3 +102,79 @@
   padding-top: 6px;
   padding-bottom: 8px;
 }
+
+.avatar-style {
+  margin-top: 20px;
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  float: right;
+}
+
+.profile-h1 {
+  float: left;
+  color: #6b6d70;
+}
+
+.wrench-style {
+  font-size: 30px;
+  color: #c3c5c9;
+  float:left;
+  margin-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.hover-circle:hover {
+  height: 50px;
+  width: 50px;
+  border-radius: 100px;
+  background-color: #edeff2;
+}
+
+.profile {
+  padding-left: 200px;
+  padding-right: 200px;
+  padding-top: 50px;
+}
+
+.profile-info {
+  padding-top: 50px;
+}
+
+.num-follow {
+  color: #6b6d70;
+  font-weight: bold;
+}
+
+.follow {
+  color: #c3c5c9;
+  font-weight: bold;
+}
+
+.follow:hover {
+  text-decoration: none;
+  color: #cdcfd3;
+}
+
+.drop-pad {
+  margin-top: 50px;
+}
+
+.profile-link {
+  float: left;
+  color: #c3c5c9;
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+.profile-link:hover {
+  text-decoration: none;
+  color: #cdcfd3;
+}
+
+.left-pad {
+  padding-left: 50px;
+}
