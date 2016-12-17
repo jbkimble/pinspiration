@@ -1,18 +1,38 @@
 <div class="container text-center profile">
-  <%= link_to edit_user_path(current_user) do %>
-  <span class="glyphicon glyphicon-wrench wrench-style" aria-hidden="true"></span>
-  <% end %>
-  <%= link_to edit_user_path(current_user) do %>
-  <span class="glyphicon glyphicon-option-horizontal wrench-style" aria-hidden="true"></span>
+  <div class="dropdown">
+  <%#= link_to edit_user_path(current_user) do %>
+  <span class="glyphicon glyphicon-wrench wrench-style hover-circle" data-toggle="dropdown"></span>
+  <%# end %>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+    <%= link_to edit_user_path(current_user) do %>
+  <span class="glyphicon glyphicon-option-horizontal wrench-style hover-circle" aria-hidden="true"></span>
   <% end %>
 <div class="profile-info">
-  <h2 class="profile-h2"><%= current_user.username %></h2>
+  <h1 class="profile-h1"><%= current_user.username %></h1>
   <%= image_tag(current_user.avatar, class: "avatar-style") %><br>
-<p>Name: <%= current_user.name %></p>
+
+  <div class="row text-left">
+    <div class="col-md-5">
+    </div>
+    <div class="col-md-1">
+      <p class="num-follow">0</p>
+      <p class="follow">followers</p>
+    </div>
+    <div class="col-md-1">
+      <p class="num-follow">0</p>
+      <p class="follow">following</p>
+    </div>
+<!-- <p>Name: <%= current_user.name %></p>
 <p>Username: <%= current_user.username %></p>
 <p>Email: <%= current_user.email %></p>
 <p>Phone: <%= current_user.phone %></p>
-<p>Password: ******* </p>
-
+<p>Password: ******* </p> -->
+</div>
 </div>
 </div>

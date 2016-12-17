@@ -111,15 +111,27 @@
   float: right;
 }
 
-.profile-h2 {
+.profile-h1 {
   float: left;
+  color: #6b6d70;
 }
 
 .wrench-style {
   font-size: 30px;
   color: #6b6d70;
   float:left;
-  padding-right: 50px;
+  margin-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.hover-circle:hover {
+  height: 50px;
+  width: 50px;
+  border-radius: 100px;
+  background-color: #d9dce0;
 }
 
 .profile {
@@ -130,4 +142,14 @@
 
 .profile-info {
   padding-top: 50px;
+}
+
+.num-follow {
+  color: #6b6d70;
+  font-weight: bold;
+}
+
+.follow {
+  color: #a5a9af;
+  font-weight: bold;
 }
