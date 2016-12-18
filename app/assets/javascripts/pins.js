@@ -8,4 +8,13 @@ $(document).ready(function (){
   $('.grid').imagesLoaded().progress( function() {
       $grid.masonry('layout');
       });
+
+
+      $('.grid').on('mouseenter', '.grid-item', function () {
+        $(this).find(":button").show();
+      }).on('mouseleave', '.grid-item', function () {
+        $(this).find(":button").hide();
+      });
 });
+// $(document).ready(function (){
+//   });

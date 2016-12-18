@@ -16,6 +16,9 @@
   <div class="grid-item">
   <%#= pin.name %>
   <%= image_tag pin.image%>
+  <div class="hover-button">
+    <button type="button" style="display: none;" class="btn btn-danger hover-button">Hello</button>
+  </div>
   <p><%= link_to "Source", pin.source, class: "pin-link" %></p>
 
   </div>
