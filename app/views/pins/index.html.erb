@@ -1,5 +1,5 @@
 
-<%= javascript_include_tag 'pins.coffee' %>
+<%= javascript_include_tag 'pins.js' %>
 
 <% if current_user %>
 <%= link_to "Logout", logout_path %>
@@ -10,6 +10,7 @@
 
 
 <div class="container">
+  <div class="grid-sizer"></div>
   <div class="grid">
 <% @pins.each do |pin| %>
   <div class="grid-item">
@@ -17,8 +18,7 @@
   <%= image_tag pin.image%>
   <p class="image-text"><%= "Source: #{pin.source}" %></p>
 
-</div>
-
+  </div>
   <% end %>
 </div>
 </div>

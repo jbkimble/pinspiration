@@ -179,17 +179,42 @@
   padding-left: 50px;
 }
 
-/*.grid {
-  margin: 0 auto;
-}*/
+.grid {
+
+}
 
 .grid-item {
+
+  float: left;
   margin-bottom: 10px;
 }
 
-.image-text {
+/*.image-text {
    position: absolute;
    top: 200px;
    left: 0;
    width: 100%;
+}*/
+
+.grid-item img {
+  display: block;
+  max-width: 100%;
+}
+
+/*.grid-item p {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  width: 100%;
+}*/
+
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.grid-sizer,
+.grid-item {
+  width: 33.333%;
 }
