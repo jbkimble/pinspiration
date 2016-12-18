@@ -4,12 +4,13 @@ describe "User can leave comment" do
   scenario "a registered user can leave a comment" do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    pin = create(:pin)
 
     comment = "my comment"
 
-    visit comments_path
+    visit pin_path(pin)
 
-    click_on "New Comment"
+    expect(page).to have_content("Leave a comment")
 
     fill_in "comment[content]", with: comment
 

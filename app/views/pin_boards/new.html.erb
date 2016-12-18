@@ -2,7 +2,7 @@
 
 <%= form_for @pin do |f| %>
   <%= f.label "Choose Board" %>
-  <%= f.select :board, current_user.boards %>
+  <%= f.collection_select(:boards, current_user.boards, :id, :name) %>
 
   <%= f.label :name %>
   <%= f.text_field :name %>
