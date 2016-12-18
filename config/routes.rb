@@ -17,8 +17,8 @@ Rails.application.routes.draw do
 
   namespace :users, as: :user, path: ":user" do
     get '/:board', to: 'boards#show', as: 'board'
-    get '/following', to: 'relationships#following', as: 'following'
-    get '/followers', to: 'relationships#followers', as: 'followers'
+    get '/followers', to: 'followers#index', as: 'followers'
+    get '/following', to: 'following#index', as: 'following'
   end
 
   resources :relationships

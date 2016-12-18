@@ -1,14 +1,13 @@
 <%= link_to "Logout", logout_path %>
 
 <h2> My Boards </h2>
-<% @boards.each do |board| %>
-<%= board.name %>
+  <% @boards.each do |board| %>
+  <%= board.name %>
 <% end %>
 
-<%= link_to "Following:", user_following_path(@user)  %> <%= current_user.followers.count %>
-<%= link_to "Followers:", user_followers_path(@user) %><%= current_user.following.count %>
+<%= link_to "Following:", user_following_path(@user) %> <%= current_user.followers.count %>
+<%= link_to "Followers:", user_followers_path(@user) %> <%= current_user.following.count %>
 
-<%= current_user.followers.count %>
 <% if current_user.id != @user.id %>
   <% if current_user.following?(@user) %>
   <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
@@ -22,6 +21,3 @@
       <% end %>
   <% end %>
 <% end %>
-
-
-<%#= render '/layouts/follow_button', :user => User.find_by(username: params[:user]) %>
