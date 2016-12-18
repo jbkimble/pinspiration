@@ -24,5 +24,9 @@ class User < ApplicationRecord
   def admin?
     roles.exists?(name: "admin")
   end
-  
+
+  def public_boards
+    boards.where(private:false)
+  end
+
 end
