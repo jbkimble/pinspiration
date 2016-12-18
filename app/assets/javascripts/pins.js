@@ -5,7 +5,7 @@ $(document).ready(function (){
     columnWidth: 260,
     gutter: 30,
     });
-  $('grid').imagesLoaded().progress( function() {
+  $('.grid').imagesLoaded().progress( function() {
       $grid.masonry('layout');
       });
 });
