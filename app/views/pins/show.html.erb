@@ -3,4 +3,10 @@
   <%= @pin.name %><br>
   <%= @pin.source %><br>
   <%= link_to "Save Pin", new_pin_path %>
+  <h4> Leave a comment: </h4>
+  <%= render partial: "shared/comment_form" %>
+  <h4>All Comments</h4>
+    <% @pin.comments.each do |comment| %>
+      <p><%= comment.content %></p>
+    <% end %>
 </div>

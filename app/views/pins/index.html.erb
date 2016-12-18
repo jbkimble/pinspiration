@@ -11,6 +11,7 @@
   <%= link_to pin.name, pin_path(pin) %><br>
   <%= image_tag pin.image %><br>
   <%= "Source: #{pin.source}" %><br>
+  <%= link_to "Save Pin", new_pin_path %>
   <hr>
   <% end %>
 </div>

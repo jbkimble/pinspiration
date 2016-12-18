@@ -5,6 +5,7 @@ class Pin < ApplicationRecord
 
   has_many :pin_boards
   has_many :boards, through: :pin_boards
-  has_many :pin_comments 
-  has_many :comments, through: :pin_comments
+  # has_many :pin_comments
+  # has_many :comments, through: :pin_comments
+  has_many :comments
 end

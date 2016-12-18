@@ -1,12 +1,7 @@
 class UsersController < ApplicationController
 
-  # def index
-  #   user = User.find_by(username: params[:user])
-  #   @boards = user.boards.all
-  # end
 
   def show
-    # binding.pry
     @user = User.find_by(slug: params[:user])
   end
 

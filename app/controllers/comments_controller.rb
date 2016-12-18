@@ -12,8 +12,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to comments_path
       flash[:success] = "Your comment has been saved."
+      redirect_to pin_path(@comment.pin)
     else
       flash.now[:error] = "Please try again."
       render :new
@@ -45,7 +45,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :pin_id)
   end
 
 end
