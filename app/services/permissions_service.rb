@@ -27,6 +27,8 @@ class PermissionsService
       return true if controller == "relationships" && action.in?(%w(create destroy))
       return true if controller == "users/followers" && action.in?(%w(index))
       return true if controller == "users/following" && action.in?(%w(index))
+      return true if controller == "boards" && action.in?(%w(new create edit update destroy))
+      return true if controller == "users/boards" && action.in?(%w(index show))
     end
 
     def user_permissions
@@ -38,6 +40,8 @@ class PermissionsService
       return true if controller == "relationships" && action.in?(%w(create destroy ))
       return true if controller == "users/followers" && action.in?(%w(index))
       return true if controller == "users/following" && action.in?(%w(index))
+      return true if controller == "boards" && action.in?(%w(new create edit update destroy))
+      return true if controller == "users/boards" && action.in?(%w(index show))
     end
 
     def guest_permissions

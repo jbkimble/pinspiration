@@ -1,7 +1,6 @@
 require "rails_helper"
 
 describe "Logged in user can log out" do
-
   scenario "A logged in user clicks the logout button" do
     user = create(:user)
     visit '/'
