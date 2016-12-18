@@ -1,6 +1,4 @@
 
-<%= javascript_include_tag('pins.js') %>
-
 <% if current_user %>
 <%= link_to "Logout", logout_path %>
 <% else %>
@@ -8,20 +6,4 @@
 <%= link_to "Create Account", new_user_path %>
 <% end %>
 
-
-<div class="container">
-  <div class="grid-sizer"></div>
-  <div class="grid">
-<% @pins.each do |pin| %>
-  <div class="grid-item">
-  <%#= pin.name %>
-  <%= image_tag pin.image%>
-  <div class="hover-button">
-    <button type="button" style="display: none;" href="#" class="btn btn-danger hover-button">Pin me! <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button>
-  </div>
-  <p><%= link_to " Visit Source ", pin.source, class: "pin-link", style: "display: none;" %></p>
-
-  </div>
-  <% end %>
-</div>
-</div>
+<%= render partial: 'shared/pins' %>
