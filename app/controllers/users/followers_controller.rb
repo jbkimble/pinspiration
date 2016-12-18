@@ -1,5 +1,7 @@
 class Users::FollowersController < ApplicationController
   def index
-    byebug
+    @user = User.find(params[:user])
+    @followers = @user.followers
+
   end
 end
