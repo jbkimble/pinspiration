@@ -29,11 +29,11 @@
         <div class="col-md-4">
         </div>
         <div class="col-md-2">
-          <p class="num-follow"> <%= current_user.following.count %> </p>
+          <p class="num-follow"> <%= current_user.followers.count %> </p>
           <p><a href="<%= user_followers_path(@user) %>" class="follow">Followers</a></p>
         </div>
         <div class="col-md-2">
-          <p class="num-follow"> <%= current_user.followers.count %> </p>
+          <p class="num-follow"> <%= current_user.following.count %> </p>
           <p><a href="<%= user_following_path(@user) %>" class="follow">Following</a></p>
         </div>
       </div>
