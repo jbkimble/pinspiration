@@ -3,8 +3,10 @@
   <%= @pin.name %><br>
   <%= @pin.source %><br>
   <%= link_to "Save Pin", new_pin_board_path(pin_id: @pin.id) %>
-  <h4> Leave a comment: </h4>
-  <%= render partial: "shared/comment_form" %>
+  <% if current_user %>
+    <h4> Leave a comment: </h4>
+    <%= render partial: "shared/comment_form" %>
+  <% end %>
   <h4>All Comments</h4>
     <% @pin.comments.each do |comment| %>
       <p><%= comment.content %></p>
