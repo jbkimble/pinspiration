@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   # end
 
   def show
-    # binding.pry
     @user = User.find_by(slug: params[:user])
+    @boards = @user.boards.all
   end
 
   def new
