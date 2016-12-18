@@ -45,4 +45,26 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe "relationships" do
+    it "has many user roles" do
+      user = create(:user)
+      expect(user).to respond_to(:user_roles)
+    end
+
+    it "has many roles" do
+      user = create(:user)
+      expect(user).to respond_to(:roles)
+    end
+
+    it "has many comments" do
+      user = create(:user)
+      expect(user).to respond_to(:comments)
+    end
+
+    it "has many boards" do
+      user = create(:user)
+      expect(user).to respond_to(:boards)
+    end
+  end
 end

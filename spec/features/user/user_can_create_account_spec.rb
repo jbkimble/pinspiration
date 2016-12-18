@@ -7,8 +7,7 @@ describe 'As a User' do
       visit root_path
       click_on 'Create Account'
 
-      #fill_in 'Avatar', with: 'https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg'
-      fill_in 'Username', with: 'Bilbo'
+      fill_in 'Username', with: 'bilbo'
       fill_in 'Email', with: 'b@shire.com'
       fill_in 'Name', with: 'Bilbo Baggins'
       fill_in 'Phone', with: '555-123-4567'
@@ -18,8 +17,28 @@ describe 'As a User' do
       click_on 'Create Account'
 
       expect(page).to have_content('Welcome Bilbo Baggins')
-      expect(page).to have_content('Bilbo')
+      expect(page).to have_content('Logout')
       expect(current_path).to eq(root_path)
+      expect(User.all.count).to eq(1)
+    end
+
+    scenario "And I leave out required information" do
+      create(:role, id: 2, name: "user")
+      visit root_path
+      click_on 'Create Account'
+
+      fill_in 'Email', with: 'b@shire.com'
+      fill_in 'Name', with: 'Bilbo Baggins'
+      fill_in 'Phone', with: '555-123-4567'
+      fill_in 'Password', with: '123'
+      fill_in 'Password Confirmation', with: '123'
+
+      click_on 'Create Account'
+
+      expect(page).to have_content('Account creation failed')
+      expect(page).to have_content('Login')
+      expect(current_path).to eq(root_path)
+      expect(User.all.count).to eq(0)
     end
   end
 end
