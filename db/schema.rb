@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(version: 20161218050147) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
+    t.index ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
