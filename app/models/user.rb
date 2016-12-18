@@ -24,4 +24,5 @@ class User < ApplicationRecord
   def admin?
     roles.exists?(name: "admin")
   end
+  
 end

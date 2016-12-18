@@ -67,4 +67,24 @@ RSpec.describe User, type: :model do
       expect(user).to respond_to(:boards)
     end
   end
+
+  describe "methods" do
+    context "#public_boards" do
+      it "returns an array of all a users public boards" do
+        user_1 = create(:user)
+        user_2 = create(:user)
+
+        user_1.boards.create(name:"first public board")
+        user_1.boards.create(name:"second public board")
+        user_1.boards.create(name:"second public board", private:true)
+
+        user_2.boards.create(name:"first public board")
+        user_2.boards.create(name:"second public board")
+        user_2.boards.create(name:"user_2 private board", private:true)
+        
+        expect(user_1.public_boards.all? {|board| board.user_id == user_1.id})
+        expect(user_1.public_boards.all? {|board| board.private == false})
+      end
+    end
+  end
 end
