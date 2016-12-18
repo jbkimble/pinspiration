@@ -178,3 +178,18 @@
 .left-pad {
   padding-left: 50px;
 }
+
+/*.grid {
+  margin: 0 auto;
+}*/
+
+.grid-item {
+  margin-bottom: 10px;
+}
+
+.image-text {
+   position: absolute;
+   top: 200px;
+   left: 0;
+   width: 100%;
+}
