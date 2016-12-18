@@ -184,9 +184,9 @@
 }
 
 .grid-item {
-  float: left;
+  /*float: left;*/
   margin-bottom: 10px;
-  margin-right: 20px;
+  /*margin-right: 20px;*/
 }
 
 .grid-item img {
@@ -207,11 +207,11 @@
   opacity: 0.5;
 }
 
-.grid:after {
+/*.grid:after {
   content: '';
   display: block;
   clear: both;
-}
+}*/
 
 .grid-sizer,
 .grid-item {
