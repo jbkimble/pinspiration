@@ -180,33 +180,32 @@
 }
 
 .grid {
-
+  margin: 0 auto;
 }
 
 .grid-item {
-
   float: left;
   margin-bottom: 10px;
+  margin-right: 20px;
 }
-
-/*.image-text {
-   position: absolute;
-   top: 200px;
-   left: 0;
-   width: 100%;
-}*/
 
 .grid-item img {
+  border-radius: 5px;
   display: block;
   max-width: 100%;
+  float: left;
 }
 
-/*.grid-item p {
-  position: absolute;
-  top: 200px;
-  left: 0;
-  width: 100%;
-}*/
+.grid-item a {
+  position: relative;
+  bottom: 40px;
+  left: 10px;
+  width: 50%;
+  color: white;
+  font-size: .8em;
+  background-color: black;
+  opacity: 0.5;
+}
 
 .grid:after {
   content: '';
@@ -216,5 +215,5 @@
 
 .grid-sizer,
 .grid-item {
-  width: 33.333%;
+  width: 260px;
 }
