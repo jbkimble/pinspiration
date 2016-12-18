@@ -8,7 +8,7 @@ class Pin < ApplicationRecord
   has_many :pin_comments
   has_many :comments, through: :pin_comments
 
-  def self.order_pins
-    order('updated_at DESC')
+  def self.all_pins_chronologically_by_updated_at
+    all.order(updated_at: :desc)
   end
 end

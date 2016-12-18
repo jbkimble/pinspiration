@@ -1,7 +1,7 @@
 class PinsController < ApplicationController
 
   def index
-    @pins = Pin.order_pins
+    @pins = Pin.all_pins_chronologically_by_updated_at
   end
 
   def show

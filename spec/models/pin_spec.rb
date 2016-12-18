@@ -35,5 +35,19 @@ RSpec.describe Pin, type: :model do
       end
     end
   end
+  describe "class methods" do
+    context ".all_pins_chronologically_by_updated_at" do
+      it "sorts the pins chronologically by updated at" do
+        last = create(:pin, name:"last")
+        middle = create(:pin, name:"middle")
+        first = create(:pin, name:"first")
+
+        pins = Pin.all_pins_chronologically_by_updated_at
+        expect(pins.first).to eq(first)
+        expect(pins.second).to eq(middle)
+        expect(pins.last).to eq(last)
+      end
+    end
+  end
 
 end
