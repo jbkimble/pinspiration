@@ -1,0 +1,8 @@
+<h3><%= @user.username %> is following:</h3>
+
+<% @following.each do |followed| %>
+  <% if followed.avatar != nil %>
+    <%= image_tag(followed.avatar, class: "avatar-style") %>
+  <% end %>
+  Username: <%= link_to followed.username, show_user_path(followed.username) %>
+<% end %>

@@ -1,0 +1,8 @@
+<h3><%= @user.username %>'s Followers</h3>
+
+<% @followers.each do |follower| %>
+  <% if follower.avatar != nil %>
+    <%= image_tag(follower.avatar, class: "avatar-style") %>
+  <% end %>
+  Username: <%= link_to follower.username, show_user_path(follower.username) %>
+<% end %>

@@ -25,6 +25,9 @@ class PermissionsService
       return true if controller == "profile" && action.in?(%w(show))
       return true if controller == "pins" && action.in?(%w(index show new create edit update destroy))
       return true if controller == "pin_boards" && action.in?(%w(index show new create update edit destroy))
+      return true if controller == "relationships" && action.in?(%w(create destroy))
+      return true if controller == "users/followers" && action.in?(%w(index))
+      return true if controller == "users/following" && action.in?(%w(index))
       return true if controller == "boards" && action.in?(%w(new create edit update destroy))
       return true if controller == "users/boards" && action.in?(%w(index show))
     end
@@ -36,6 +39,11 @@ class PermissionsService
       return true if controller == "profile" && action.in?(%w(show))
       return true if controller == "pins" && action.in?(%w(index show))
       return true if controller == "pin_boards" && action.in?(%w(index show new create update edit destroy))
+
+      return true if controller == "pins" && action.in?(%w(index show new create edit update destroy))
+      return true if controller == "relationships" && action.in?(%w(create destroy ))
+      return true if controller == "users/followers" && action.in?(%w(index))
+      return true if controller == "users/following" && action.in?(%w(index))
       return true if controller == "boards" && action.in?(%w(new create edit update destroy))
       return true if controller == "users/boards" && action.in?(%w(index show))
     end
@@ -46,5 +54,7 @@ class PermissionsService
       return true if controller == "pins" && action.in?(%w(index show))
       return true if controller == "pin_boards" && action.in?(%w(new))
       return true if controller == "users/boards" && action.in?(%w(index show))
+      return true if controller == "users/followers" && action.in?(%w(index))
+      return true if controller == "users/following" && action.in?(%w(index))
     end
 end
