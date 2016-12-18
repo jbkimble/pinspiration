@@ -6,7 +6,7 @@ describe "As a visitor" do
       pins = create_list(:pin, 10)
       second_newest_pin = create(:pin, name:"second newest pin")
       newest_pin = create(:pin, name:"newest pin")
-        binding.pry    
+      
       visit root_path
 
       expect(page).to have_selector(".pin", count:12)
