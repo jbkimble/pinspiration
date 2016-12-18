@@ -28,10 +28,9 @@ RSpec.describe Pin, type: :model do
         expect(pin).to respond_to(:boards)
         expect(pin).to respond_to(:pin_boards)
       end
-      it "has many comments through pin_comments" do
+      it "has many comments" do
         pin = create(:pin)
         expect(pin).to respond_to(:comments)
-        expect(pin).to respond_to(:pin_comments)
       end
     end
   end
