@@ -17,9 +17,9 @@
   <%#= pin.name %>
   <%= image_tag pin.image%>
   <div class="hover-button">
-    <button type="button" style="display: none;" href="#" class="btn btn-danger hover-button">Pin me!</button>
+    <button type="button" style="display: none;" href="#" class="btn btn-danger hover-button">Pin me! <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button>
   </div>
-  <p><%= link_to " Visit Source ", pin.source, class: "pin-link" %></p>
+  <p><%= link_to " Visit Source ", pin.source, class: "pin-link", style: "display: none;" %></p>
 
   </div>
   <% end %>
