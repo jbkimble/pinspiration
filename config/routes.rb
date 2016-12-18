@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :boards, only: [:new, :create, :edit, :update, :destroy]
-  
+
   get '/profile', to: 'profile#show'
 
   get '/login', to: 'sessions#new'
@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   root 'pins#index'
 
   resources :comments
+
+  resources :pin_boards, only: [:new, :create, :edit, :update, :delete]
 
   resources :pins, path: 'pin'
 
