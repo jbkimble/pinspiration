@@ -297,10 +297,10 @@
     height: 40px;
     width: 875px !important;
     border-color: #EFEFEF;
-    font-weight: bold;
     font-size: 1.2em;
     border-radius: 5px;
     box-shadow: none;
+    color: #B6B6B6;
 }
 
 .glyphicon-search {
