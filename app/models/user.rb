@@ -18,6 +18,8 @@ class User < ApplicationRecord
 
   before_validation :generate_slug
 
+  attr_reader :private_boards
+
   def generate_slug
     self.slug = username.parameterize if username
   end
@@ -46,11 +48,15 @@ class User < ApplicationRecord
     following.include?(someuser)
   end
 
-  def private_boards
-    boards.where(isprivate: true)
-  end
 
   def public_boards
     boards.where(isprivate: false)
   end
+
+  def set_private_boards(user, current_user)
+    @private_boards = boards.where(isprivate:true) if user == current_user
+    
+  end
+
+
 end

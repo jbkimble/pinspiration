@@ -86,5 +86,24 @@ RSpec.describe User, type: :model do
         expect(user_1.public_boards.all? {|board| board.isprivate == false})
       end
     end
+    context("#set_private_boards(user, current_user)") do
+      it "returns the correct private boards if the current_user is visiting thier own profile" do
+        user_1 = create(:user)
+        user_2 = create(:user)
+
+        user_1.boards.create(name:"first public board")
+        user_1.boards.create(name:"second public board")
+        user_1.boards.create(name:"first private board", isprivate:true)
+        user_1.boards.create(name:"second private board", isprivate:true)
+
+        user_2.boards.create(name:"first public board")
+        user_2.boards.create(name:"second public board")
+        user_2.boards.create(name:"user_2 private board", isprivate:true)
+
+        user_1.set_private_boards(user_1, user_1)
+
+        expect(user_1.private_boards.count).to eq(2)
+      end
+    end
   end
 end
