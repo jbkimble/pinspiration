@@ -4,6 +4,7 @@
   <%= form_for @board do |f| %>
     <%=f.label :name  %>
     <%=f.text_field :name  %>
+    <%= f.select :isprivate, ['Public', 'Private'], selected: @board.isprivate ? 'Private' : 'Public' %>
 
     <%= f.submit %>
   <% end %>

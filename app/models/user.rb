@@ -46,4 +46,11 @@ class User < ApplicationRecord
     following.include?(someuser)
   end
 
+  def private_boards
+    boards.where(isprivate: true)
+  end
+
+  def public_boards
+    boards.where(isprivate: false)
+  end
 end
