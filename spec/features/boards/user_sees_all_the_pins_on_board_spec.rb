@@ -8,9 +8,6 @@ describe "User sees pins belonging to board" do
     visit user_board_path(board.user.slug, board.slug)
 
     expect(page).to have_content("#{board.name}")
-    expect(page).to have_content("#{board.pins.first.name}")
-    expect(page).to have_content("#{board.pins.second.name}")
-    expect(page).to have_content("#{board.pins.third.name}")
     expect(page).to have_content("#{board.pins.first.source}")
     expect(page).to have_content("#{board.pins.second.source}")
     expect(page).to have_content("#{board.pins.third.source}")
