@@ -9,7 +9,6 @@ class PinBoardsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @pin_board = PinBoard.new(pin_board_params)
     if @pin_board.save
       flash[:success] = "#{@pin_board.pin.name} has been added to your board"
