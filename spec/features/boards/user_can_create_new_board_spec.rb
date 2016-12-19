@@ -8,7 +8,7 @@ describe "User can create board" do
     visit show_user_path(user.username)
     board_name = "Dogs and Puppies"
 
-    click_on "Create New Board"
+    click_on "Create Board"
     fill_in "board[name]", with: board_name
     click_on "Create Board"
 
@@ -21,7 +21,7 @@ describe "User can create board" do
     visit show_user_path(user.username)
     board_name = "Dogs and Puppies"
 
-    click_on "Create New Board"
+    click_on "Create Board"
     click_on "Create Board"
 
     expect(page).to have_content("Board creation failed, please try again")
