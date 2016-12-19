@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :board do
     name "MyText"
-    isprivate 'false'
+    isprivate false
     user
   end
 end
