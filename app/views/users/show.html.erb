@@ -41,11 +41,21 @@
     </div>
   </div>
   <br>
+  <%= link_to "Create New Board", new_board_path %>
   <div class="boards-grid">
-    <%= link_to "Create New Board", new_board_path %><br>
-    <% @user.boards.each do |board| %>
-      <%= link_to "#{board.name}", user_board_path(@user.slug, board.slug) %>
-      <hr>
-      <% end %>
+    <div class="public">
+      <h1>Public Boards</h1>
+      <% @user.public_boards.each do |board| %>
+        <%= link_to "#{board.name}", user_board_path(@user.slug, board.slug) %> <br>
+        <hr>
+        <% end %>
+    </div>
+    <div class="private">
+      <h1>Private Boards</h1>
+      <% @user.private_boards.each do |board| %>
+        <%= link_to "#{board.name}", user_board_path(@user.slug, board.slug) %><br>
+        <hr>
+        <% end %>
+    </div>
   </div>
 </div>

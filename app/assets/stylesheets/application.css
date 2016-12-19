@@ -209,6 +209,8 @@
   font-size: .8em;
   background-color: black;
   opacity: 0.5;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 .pin-link:hover {
@@ -232,9 +234,39 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .grid-item:hover {
   opacity: 1;
+}
+
+.grid img{
+    cursor: -moz-zoom-in;
+    cursor: -webkit-zoom-in;
+    cursor: zoom-in;
+}
+
+.pin-show {
+  padding-top: 50px;
+}
+.pin-show-image {
+  border-radius: 10px;
+}
+
+.pin-show img{
+  cursor: -moz-zoom-out;
+  cursor: -webkit-zoom-out;
+  cursor: zoom-out;
+}
+
+.button-pin {
+  position: relative;
+  bottom: 50px;
+  right: 0px;
+  opacity: 1;
+}
+
+.pin-pad {
+  margin-top: -10px;
 }

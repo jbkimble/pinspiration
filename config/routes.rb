@@ -31,5 +31,9 @@ Rails.application.routes.draw do
     get '/:board', to: 'boards#show', as: 'board'
   end
 
+  resources :relationships, only: [:create, :destroy]
+
+  get '/dashboard', to: 'users#show'
+
 
 end

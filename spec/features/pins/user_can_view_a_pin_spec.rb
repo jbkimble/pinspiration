@@ -11,13 +11,14 @@ describe "User can view a pin" do
 
     visit root_path
 
-    expect(page).to have_content("#{pin.name}")
+    expect(page).to have_xpath("//img[contains(@src,'#{pin.image}')]")
 
-    click_on "#{pin.name}"
+    click_link "#{pin.name}"
+
 
     expect(current_path).to eq(pin_path(pin))
 
-    click_on "Save Pin"
+    click_link "Pin me!"
 
     expect(current_path).to eq(new_pin_board_path)
     expect(page).to have_content("Choose board")
