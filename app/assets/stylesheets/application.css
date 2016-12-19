@@ -262,7 +262,11 @@
 
 .button-pin {
   position: relative;
-  top: 5px;
+  bottom: 50px;
   right: 0px;
   opacity: 1;
+}
+
+.pin-pad {
+  margin-top: -10px;
 }
