@@ -49,4 +49,11 @@ class User < ApplicationRecord
   def public_boards
     boards.where(isprivate: false)
   end
+
+#returns a list of users own boards and boards created by people user is following
+  def feed(user)
+    Board.where("user_id IN (?) OR user_id = ?", user.following_ids, user.id)
+    Comment.where("user_id IN (?) OR user_id = ?", user.following_ids, user.id)
+    
+  end
 end

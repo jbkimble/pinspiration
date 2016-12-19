@@ -11,6 +11,8 @@ describe 'As a logged in user' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
 
       visit show_user_path(user1.username)
+      expect(page).to have_content(0)
+
       visit show_user_path(user2.username)
 
       click_button "Follow"
