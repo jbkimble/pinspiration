@@ -30,10 +30,10 @@ class User < ApplicationRecord
     roles.exists?(name: "admin")
   end
 
-<<<<<<< HEAD
   def public_boards
     boards.where(private:false)
-=======
+  end
+
   def follow(someuser)
     active_relationships.create(followed_id: someuser.id)
   end
@@ -44,7 +44,6 @@ class User < ApplicationRecord
 
   def following?(someuser)
     following.include?(someuser)
->>>>>>> 9bdc56aba0ffc190f25a8483408a6a99410b2906
   end
 
 end

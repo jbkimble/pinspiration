@@ -41,7 +41,6 @@
       <br>
     </div>
   </div>
-<<<<<<< HEAD
   <div class="counts">
     <div class="container-fluid">
       <div class="row">
@@ -49,17 +48,21 @@
         <div class="col-md-1"></div>
         <div class="col-md-1"></div>
         <div class="col-md-1">
-          <p><%= "#{@user.follower.count}" %></p>
-          <p><a href="#" class="profile-link">Boards</a> </p></div>
+          <p class="num-follow"><%= "#{@user.boards.count}" %></p>
+          <p><a href="#" class="profile-link">Boards</a></p>
+        </div>
         <div class="col-md-1"><p>
-          <p></p>
-          <a href="#" class="profile-link">Pins</a></p></div>
+          <p class="num-follow"><%= "#{@user.boards.count}" %></p>
+          <a href="#" class="profile-link">Pins</a></p>
+        </div>
         <div class="col-md-1"><p>
-          <p></p>
-          <a href="#" class="profile-link">Followers</a></p></div>
+          <p class="num-follow"><%= "#{@user.followers.count}" %></p>
+          <a href="#" class="profile-link">Followers</a></p>
+        </div>
         <div class="col-md-1"><p>
-          <p></p>
-          <a href="#" class="profile-link">Following</a></p></div>
+          <p class="num-follow"><%= "#{@user.following.count}" %></p>
+          <a href="#" class="profile-link">Following</a></p>
+        </div>
         <div class="col-md-1"></div>
         <div class="col-md-1"></div>
         <div class="col-md-1"></div>
@@ -67,17 +70,10 @@
         <div class="col-md-1"></div>
         <div class="col-md-1"></div>
 
-
-=======
-  <br>
-  <div class="boards-grid">
-    <%= link_to "Create New Board", new_board_path %><br>
-    <% @user.boards.each do |board| %>
-      <%= link_to "#{board.name}", user_board_path(@user.slug, board.slug) %>
-      <hr>
-      <% end %>
->>>>>>> 9bdc56aba0ffc190f25a8483408a6a99410b2906
+      </div>
+    </div>
   </div>
+
 
   <div class="boards-grid">
     <div class="container-fluid">
