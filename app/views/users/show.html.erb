@@ -37,25 +37,64 @@
           <p><a href="<%= user_following_path(@user) %>" class="follow">Following</a></p>
         </div>
       </div>
-      <p><a href="#" class="profile-link">Boards</a> <a href="#" class="profile-link left-pad">Pins</a></p>
+      <br>
+      <br>
     </div>
   </div>
-  <br>
-  <%= link_to "Create New Board", new_board_path %>
+  <div class="counts">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+        <div class="col-md-1">
+          <p class="num-follow"><%= "#{@user.boards.count}" %></p>
+          <a href="#" class="profile-link">Boards</a>
+        </div>
+        <div class="col-md-1">
+          <p class="num-follow"><%= "#{@user.boards.count}" %></p>
+          <a href="#" class="profile-link">Pins</a>
+        </div>
+        <div class="col-md-1">
+          <p class="num-follow"><%= "#{@user.followers.count}" %></p>
+          <a href="#" class="profile-link">Followers</a>
+        </div>
+        <div class="col-md-1">
+          <p class="num-follow"><%= "#{@user.following.count}" %></p>
+          <a href="#" class="profile-link">Following</a>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+
+      </div>
+
+
   <div class="boards-grid">
-    <div class="public">
-      <h1>Public Boards</h1>
-      <% @user.public_boards.each do |board| %>
-        <%= link_to "#{board.name}", user_board_path(@user.slug, board.slug) %> <br>
-        <hr>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3">
+            <div class="add-public-board">
+              <br>
+              <br><br><br><br>
+              <span class="glyphicon glyphicon-plus-sign"></span>
+              <br>
+              <%= link_to "Create Board", new_board_path %>
+            </div>
+        </div>
+        <%@user.public_boards.each do |board| %>
+        <div class="col-md-3">
+          <div class="public-board">
+            <br><br><br><br><br><br><br><br><br><br>
+            <%= link_to "#{board.name}", user_board_path(@user.slug, board.slug), :class => "board-title" %>
+            <p class="board-pin-count"> <%= "#{board.pins.count} Pins"%></p>
+          </div>
+        </div>
         <% end %>
+      </div>
     </div>
-    <div class="private">
-      <h1>Private Boards</h1>
-      <% @user.private_boards.each do |board| %>
-        <%= link_to "#{board.name}", user_board_path(@user.slug, board.slug) %><br>
-        <hr>
-        <% end %>
-    </div>
-  </div>
+      </div>
 </div>
