@@ -147,6 +147,7 @@
 .num-follow {
   color: #6b6d70;
   font-weight: bold;
+  text-align: center;
 }
 
 .follow {
@@ -168,6 +169,7 @@
   color: #c3c5c9;
   font-weight: bold;
   font-size: 1.25em;
+  text-align: center;
 }
 
 .profile-link:hover {
