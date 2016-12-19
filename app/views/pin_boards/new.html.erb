@@ -1,0 +1,11 @@
+<h2>Choose Board</h2>
+
+<%= form_for @pin_board do |f| %>
+  <%= f.label "Choose Board" %>
+  <%= f.collection_select(:board_id, current_user.boards, :id, :name) %>
+
+  <%= f.hidden_field :pin_id %>
+
+  <%= f.submit "Add to board" %>
+
+<% end %>

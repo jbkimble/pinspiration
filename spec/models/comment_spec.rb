@@ -16,7 +16,8 @@ RSpec.describe Comment, type: :model do
     context "valid attributes" do
       it "is valid with all attributes" do
         user = create(:user)
-        comment = Comment.new(content: "content", user_id: user.id)
+        pin = create(:pin)
+        comment = Comment.new(content: "content", user_id: user.id, pin_id: pin.id)
         expect(comment).to be_valid
       end
     end
