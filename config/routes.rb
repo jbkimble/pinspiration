@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :comments
 
-  resources :pin_boards, only: [:new, :create, :edit, :update, :delete]
+  resources :pin_boards, except: [:show]
 
   resources :pins, path: 'pin'
 

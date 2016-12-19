@@ -4,6 +4,23 @@
   <%= link_to "Edit Board", edit_board_path(@board) %>
   <%= link_to "Delete Board", board_path(@board), method: "delete" %>
 
-  <%= render partial: 'shared/pins' %>
-  
+  <%#= render partial: 'shared/pins' %>
+  <%= javascript_include_tag('pins.js') %>
+
+  <div class="container">
+    <div class="grid-sizer"></div>
+    <div class="grid">
+      <% @pins.each do |pin| %>
+      <div class="grid-item pin">
+        <%= link_to image_tag(pin.image), pin_path(pin), id: "#{pin.name}" %>
+        <%= link_to pin_board_path(pin), method: "delete" do %>
+        <div class="hover-button">
+          <button type="button" style="display: none;" class="btn btn-warning hover-button">Remove<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        </div>
+        <% end %>
+        <p><%= link_to "Visit Source", pin.source, class: "pin-link", style: "display: none;" %></p>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
