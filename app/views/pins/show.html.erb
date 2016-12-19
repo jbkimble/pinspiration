@@ -1,8 +1,11 @@
-<div class="container">
-  <%= image_tag src=@pin.image %><br>
-  <%= @pin.name %><br>
-  <%= @pin.source %><br>
-  <%= link_to "Save Pin", new_pin_board_path(pin_id: @pin.id) %>
+<div class="container text-center pin-show">
+  <%= link_to image_tag(@pin.image, class: "pin-show-image"), :back %><br>
+  <%= link_to new_pin_board_path(pin_id: @pin.id) do %>
+    <button type="button" class="btn btn-danger button-pin">Pin me! <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button>
+  <% end %>
+  <h4 class="pin-pad"><%= @pin.name %></h4>
+  Pin from <span class="form-link"><%= link_to @pin.source, @pin.source %></span><br>
+  <hr>
   <% if current_user %>
     <h4> Leave a comment: </h4>
     <%= render partial: "shared/comment_form" %>
