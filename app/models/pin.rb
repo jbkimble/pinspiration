@@ -5,6 +5,12 @@ class Pin < ApplicationRecord
 
   has_many :pin_boards
   has_many :boards, through: :pin_boards
-  has_many :pin_comments 
-  has_many :comments, through: :pin_comments
+  # has_many :pin_comments
+  # has_many :comments, through: :pin_comments
+  has_many :comments
+
+  def self.all_pins_chronologically_by_updated_at
+    all.order(updated_at: :desc)
+  end
+  
 end
