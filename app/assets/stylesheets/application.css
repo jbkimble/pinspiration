@@ -295,7 +295,7 @@
 .form-control {
     background-color: #EFEFEF;
     height: 40px;
-    width: 500px !important;
+    width: 875px !important;
     border-color: #EFEFEF;
     font-weight: bold;
     font-size: 1.2em;
@@ -325,4 +325,9 @@
 
 .nav-button {
   display: none;
+}
+
+.menu {
+  color: #B6B6B6;
+  font-size: 25px;
 }
