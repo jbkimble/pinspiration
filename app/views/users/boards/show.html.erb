@@ -4,4 +4,16 @@
   <%= link_to "Edit Board", edit_board_path(@board) %>
   <%= link_to "Delete Board", board_path(@board), method: "delete" %>
 
+  <div class="text-center pin-show">
+    <% @board.pins.each do |pin| %>
+      <%= link_to image_tag(pin.image, class: "pin-show-image"), pin_path(pin) %><br>
+      <%= link_to new_pin_board_path(pin_id: pin.id) do %>
+        <button type="button" class="btn btn-danger button-pin">Pin me! <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button>
+      <% end %>
+      <h4 class="pin-pad"><%= pin.name %></h4>
+      Pin from <span class="form-link"><%= link_to pin.source, pin.source %></span><br>
+      <hr>
+
+    <% end %>
+  </div>
 </div>

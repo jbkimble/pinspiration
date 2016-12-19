@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "User can view another user's boards" do
-  scenario "User see's all the public boards on another users show page" do
+  xscenario "User see's all the public boards on another users show page" do
 
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)

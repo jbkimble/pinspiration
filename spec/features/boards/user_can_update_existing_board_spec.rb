@@ -33,7 +33,7 @@ describe "User can update existing board" do
     expect(page).to have_content("Board update failed, please try again")
   end
 
-  scenario "User can change a public board to private" do
+  xscenario "User can change a public board to private" do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     board = create(:board, name: 'Movies', user: user)
@@ -48,7 +48,7 @@ describe "User can update existing board" do
     end
   end
 
-  scenario "User can change a private board to private" do
+  xscenario "User can change a private board to private" do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     board = create(:board, name: 'Dogs', user: user, isprivate: true)
