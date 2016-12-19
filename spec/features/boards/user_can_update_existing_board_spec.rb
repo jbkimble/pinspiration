@@ -33,33 +33,33 @@ describe "User can update existing board" do
     expect(page).to have_content("Board update failed, please try again")
   end
 
-  xscenario "User can change a public board to private" do
-    user = create(:user)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    board = create(:board, name: 'Movies', user: user)
+  # scenario "User can change a public board to private" do
+  #   user = create(:user)
+  #   allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+  #   board = create(:board, name: 'Movies', user: user)
+  #
+  #   visit edit_board_path(board)
+  #   select "Private", :from => "board_isprivate"
+  #   click_on "Update Board"
+  #   visit show_user_path(user.username)
+  #
+  #   within('div.private') do
+  #     expect(page).to have_content('Movies')
+  #   end
+  # end
 
-    visit edit_board_path(board)
-    select "Private", :from => "board_isprivate"
-    click_on "Update Board"
-    visit show_user_path(user.username)
-
-    within('div.private') do
-      expect(page).to have_content('Movies')
-    end
-  end
-
-  xscenario "User can change a private board to private" do
-    user = create(:user)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    board = create(:board, name: 'Dogs', user: user, isprivate: true)
-
-    visit edit_board_path(board)
-    select "Public", :from => "board_isprivate"
-    click_on "Update Board"
-    visit show_user_path(user.username)
-
-    within('div.private') do
-      expect(page).to have_content('Dogs')
-    end
-  end
+  # scenario "User can change a private board to private" do
+  #   user = create(:user)
+  #   allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+  #   board = create(:board, name: 'Dogs', user: user, isprivate: true)
+  #
+  #   visit edit_board_path(board)
+  #   select "Public", :from => "board_isprivate"
+  #   click_on "Update Board"
+  #   visit show_user_path(user.username)
+  #
+  #   within('div.private') do
+  #     expect(page).to have_content('Dogs')
+  #   end
+  # end
 end

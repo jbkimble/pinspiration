@@ -12,7 +12,7 @@ describe "User can view another user's boards" do
 
     showing_user.boards.create(name:"showing user board one public")
     showing_user.boards.create(name:"showing user board two public")
-    showing_user.boards.create(name:"showing user board three private", private:true)
+    showing_user.boards.create(name:"showing user board three private", isprivate:true)
 
     visit show_user_path(showing_user.slug)
 
