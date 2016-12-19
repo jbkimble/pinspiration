@@ -10,7 +10,8 @@ class PasswordsController < ApplicationController
       send_confirmation_to(user)
       @user = User.new
     else
-      # error ere plz
+      flash[:alert] = "Invalid email. Please try again."
+      redirect_to password_reset_path
     end
   end
 
@@ -22,7 +23,7 @@ class PasswordsController < ApplicationController
       redirect_to login_path
     else
       flash[:alert] = "Verification code not found"
-      render :new
+      redirect_to password_reset_path
     end
   end
 
