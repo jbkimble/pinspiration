@@ -18,7 +18,7 @@ class PasswordsController < ApplicationController
     user = User.find_by(verification_code: params[:user][:verification_code])
     if user
       user.update(user_params.merge(verification_code: nil))
-      flash[:success] = "Password succesfully reset"
+      flash[:success] = "Password successfully reset"
       redirect_to login_path
     else
       flash[:alert] = "Verification code not found"
