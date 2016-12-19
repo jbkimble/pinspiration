@@ -147,6 +147,7 @@
 .num-follow {
   color: #6b6d70;
   font-weight: bold;
+  text-align: center;
 }
 
 .follow {
@@ -168,6 +169,7 @@
   color: #c3c5c9;
   font-weight: bold;
   font-size: 1.25em;
+  text-align: center;
 }
 
 .profile-link:hover {
@@ -178,6 +180,7 @@
 .left-pad {
   padding-left: 50px;
 }
+
 
 .grid {
   margin: 0 auto;
@@ -242,9 +245,9 @@
 }
 
 .grid img{
-    cursor: -moz-zoom-in;
-    cursor: -webkit-zoom-in;
-    cursor: zoom-in;
+  cursor: -moz-zoom-in;
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
 }
 
 .pin-show {
@@ -270,3 +273,52 @@
 .pin-pad {
   margin-top: -10px;
 }
+/*boards on profile page css*/
+/* add board styling*/
+
+.add-public-board {
+  height: 20em;
+  width: 15em;
+  float: center;
+  border: 1px solid #F3F3F3;
+  border-radius: 5px;
+  margin: 1em auto;
+  text-align: center;
+}
+.glyphicon.glyphicon-plus-sign {
+  color: red;
+  font-size: 150%;
+  text-align: center;
+}
+.add-public-board:hover{
+
+  background-color: #F3F3F3;
+  margin: 10px #F3F3F3;
+  border: 1px solid #E4E4E4;
+  border-radius: 5px;
+}
+/*public board styling*/
+
+.public-board{
+  height: 20em;
+  width: 15em;
+  float: center;
+  border: 1px solid #F3F3F3;
+  border-radius: 5px;
+  margin: 1em auto;
+
+  text-align: left;
+  padding: 1em;
+}
+.public-board:hover{
+  background-color:#F3F3F3;
+  margin: 10px #F3F3F3;
+  border: 1px solid #E4E4E4;
+  border-radius: 5px;
+}
+.board-title{
+  color: black;
+  font-weight: bold;
+}
+.board-pin-count{
+  color: #E4E4E4;

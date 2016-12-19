@@ -1,5 +1,10 @@
 class Board < ApplicationRecord
+  include PublicActivity::Model
+  tracked
+
   belongs_to :user
+  has_many :pin_boards
+  has_many :pins, through: :pin_boards
   validates :name, presence: true
 
   has_many :pin_boards
