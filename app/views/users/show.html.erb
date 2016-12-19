@@ -45,10 +45,18 @@
         <div class="col-md-1"></div>
         <div class="col-md-1"></div>
         <div class="col-md-1"></div>
-        <div class="col-md-1"><p><a href="#" class="profile-link">Boards</a> </p></div>
-        <div class="col-md-1"><p><a href="#" class="profile-link">Pins</a></p></div>
-        <div class="col-md-1"><p><a href="#" class="profile-link">Followers</a></p></div>
-        <div class="col-md-1"><p><a href="#" class="profile-link">Following</a></p></div>
+        <div class="col-md-1">
+          <p><%= "#{@user.follower.count}" %></p>
+          <p><a href="#" class="profile-link">Boards</a> </p></div>
+        <div class="col-md-1"><p>
+          <p></p>
+          <a href="#" class="profile-link">Pins</a></p></div>
+        <div class="col-md-1"><p>
+          <p></p>
+          <a href="#" class="profile-link">Followers</a></p></div>
+        <div class="col-md-1"><p>
+          <p></p>
+          <a href="#" class="profile-link">Following</a></p></div>
         <div class="col-md-1"></div>
         <div class="col-md-1"></div>
         <div class="col-md-1"></div>
@@ -76,7 +84,7 @@
           <div class="public-board">
             <br><br><br><br><br><br><br><br><br><br>
             <%= link_to "#{board.name}", user_board_path(@user.slug, board.slug), :class => "board-title" %>
-            <p> <%= "#{board.pins.count} Pins" %></p>
+            <p class="board-pin-count"> <%= "#{board.pins.count} Pins"%></p>
           </div>
         </div>
         <% end %>
