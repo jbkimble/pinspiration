@@ -13,7 +13,7 @@ describe "Visitor can view a pin" do
 
     expect(current_path).to eq(pin_path(pin))
 
-    click_on "Save Pin"
+    click_link "Pin me!"
 
     expect(current_path).to eq(login_path)
   end
