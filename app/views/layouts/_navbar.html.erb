@@ -25,28 +25,28 @@
           <% if current_user %>
             <li>
               <%= link_to "#" do %>
-                <i class="glyphicon glyphicon-inbox menu"></i>
+                <i class="glyphicon glyphicon-inbox menu" id="feed"></i>
               <% end %>
             </li>
             <li>
               <%= link_to show_user_path(current_user.slug) do %>
-                <i class="glyphicon glyphicon-user menu"></i>
+                <i class="glyphicon glyphicon-user menu" id="profile"></i>
               <% end %>
             </li>
             <li>
               <%= link_to logout_path do %>
-                <i class="glyphicon glyphicon-off menu"></i>
+                <i class="glyphicon glyphicon-off menu" id="logout"></i>
               <% end %>
             </li>
           <% else %>
             <li>
               <%= link_to login_path do %>
-                <i class="glyphicon glyphicon-off menu"></i>
+                <i class="glyphicon glyphicon-off menu" id="login"></i>
               <% end %>
             </li>
             <li>
               <%= link_to new_user_path do %>
-                <i class="glyphicon glyphicon-plus menu"></i>
+                <i class="glyphicon glyphicon-plus menu" id="create"></i>
               <% end %>
             </li>
           <% end %>
