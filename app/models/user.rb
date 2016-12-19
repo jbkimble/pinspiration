@@ -55,7 +55,6 @@ class User < ApplicationRecord
 
   def set_private_boards(user, current_user)
     @private_boards = boards.where(isprivate:true) if user == current_user
-    
   end
 
 

@@ -103,6 +103,27 @@ RSpec.describe User, type: :model do
         user_1.set_private_boards(user_1, user_1)
 
         expect(user_1.private_boards.count).to eq(2)
+        expect(user)
+      end
+
+      it "returns the private boards that a user has been invited to" do
+        user_1 = create(:user)
+        user_2 = create(:user)
+
+        user_1.boards.create(name:"first public board")
+        user_1.boards.create(name:"second public board")
+        user_1.boards.create(name:"first private board", isprivate:true)
+        user_1.boards.create(name:"second private board", isprivate:true)
+
+        user_2.boards.create(name:"first public board")
+        user_2.boards.create(name:"second public board")
+        user_2.boards.create(name:"user_2 private board", isprivate:true)
+
+
+
+        user_1.set_private_boards(user_1, user_2)
+
+        user
       end
     end
   end
