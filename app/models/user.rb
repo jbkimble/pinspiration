@@ -53,14 +53,14 @@ class User < ApplicationRecord
     boards.where(isprivate: false)
   end
 
-  def set_private_boards(user, current_user)
-    @private_boards = boards.where(isprivate:true) if user == current_user
-    set_shared_private_boards(user, current_user) if user != current_user
+  def set_private_boards(current_user)
+    @private_boards = boards.where(isprivate:true) if self == current_user
+    set_shared_private_boards(current_user) if self != current_user
   end
 
   private
-    def set_shared_private_boards(user, current_user)
-      ids = SharedBoard.where(owner_id:user.id, viewer_id:current_user.id).pluck(:board_id)
+    def set_shared_private_boards(current_user)
+      ids = SharedBoard.where(owner_id:id, viewer_id:current_user.id).pluck(:board_id)
       @private_boards = Board.where(id: ids)
     end
 end

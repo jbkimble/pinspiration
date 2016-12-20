@@ -100,7 +100,7 @@ RSpec.describe User, type: :model do
         user_2.boards.create(name:"second public board")
         user_2.boards.create(name:"user_2 private board", isprivate:true)
 
-        user_1.set_private_boards(user_1, user_1)
+        user_1.set_private_boards(user_1)
 
         expect(user_1.private_boards.count).to eq(2)
       end
@@ -120,7 +120,7 @@ RSpec.describe User, type: :model do
 
         SharedBoard.create!(owner_id:owner.id, viewer_id:viewer.id,board_id:board.id)
 
-        owner.set_private_boards(owner, viewer)
+        owner.set_private_boards(viewer)
 
         expect(owner.private_boards.first).to eq(board)
 
@@ -142,7 +142,7 @@ RSpec.describe User, type: :model do
         SharedBoard.create!(owner_id:owner.id, viewer_id:viewer.id,board_id:board_1.id)
         SharedBoard.create!(owner_id:owner.id, viewer_id:viewer.id,board_id:board_2.id)
 
-        owner.set_private_boards(owner, viewer)
+        owner.set_private_boards( viewer)
 
         expect(owner.private_boards.first).to eq(board_1)
         expect(owner.private_boards.second).to eq(board_2)
