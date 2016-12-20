@@ -20,7 +20,7 @@
  }
 
 .every-page {
-  padding-top: 50px;
+  padding-top: 40px;
 }
 
 .form-h3 {
@@ -398,4 +398,8 @@
 
 .navbar-toggle collapsed {
   background-color: white;
+}
+
+.alert {
+  text-align: center;
 }
