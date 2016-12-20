@@ -29,6 +29,13 @@ Rails.application.routes.draw do
     resources :pins
   end
 
+  namespace :api do
+    namespace :v1 do
+      namespace :pins do
+        get '/:id/comments', to: 'comments#index'
+      end
+    end
+  end
 
   get '/:user', to: 'users#show', as: 'show_user'
 
