@@ -1,4 +1,5 @@
 class Pin < ApplicationRecord
+
   validates :name, presence: true
   validates :source, presence: true
   validates :image, presence: true
@@ -12,5 +13,5 @@ class Pin < ApplicationRecord
   def self.all_pins_chronologically_by_updated_at
     all.order(updated_at: :desc)
   end
-  
+
 end
