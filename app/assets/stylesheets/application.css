@@ -395,3 +395,7 @@
 .board-pin-count{
   color: #E4E4E4;
 }
+
+.navbar-toggle collapsed {
+  background-color: white;
+}
