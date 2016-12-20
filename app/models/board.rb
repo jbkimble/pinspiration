@@ -1,6 +1,6 @@
 class Board < ApplicationRecord
-  include PublicActivity::Model
-  tracked
+  include PublicActivity::Common
+  # tracked only: :create, owner: ->(controller, model) { controller && controller.current_user }
 
   belongs_to :user
   has_many :pin_boards
