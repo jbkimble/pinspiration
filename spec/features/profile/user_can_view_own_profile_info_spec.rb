@@ -20,6 +20,6 @@ describe "User can see profile" do
 
     expect(page).to_not have_content("Account Information")
     expect(page).to have_content("You are not authorized to view that page.")
-    expect(page).to have_content("Login")
+    expect(page).to have_selector("#login")
   end
 end
