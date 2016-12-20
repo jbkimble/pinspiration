@@ -399,3 +399,7 @@
 .navbar-toggle collapsed {
   background-color: white;
 }
+
+#activity-feed img{
+  width: 50px;
+}
