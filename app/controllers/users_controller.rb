@@ -2,8 +2,13 @@ class UsersController < ApplicationController
 
 
   def show
-    @user = User.find_by(slug: params[:user])
-    @user.set_private_boards(current_user)
+    if @user = User.find_by(slug: params[:user])
+      @user.set_private_boards(current_user)
+    else
+      flash[:failure] = "This user does not exist"
+      redirect_to root_path
+    end
+
   end
 
   def new
