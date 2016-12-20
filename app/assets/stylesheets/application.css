@@ -431,3 +431,8 @@
 .delete-edit {
   padding-top: 30px;
 }
+
+.thumbnail {
+  width: auto;
+  height: 75px;
+}
