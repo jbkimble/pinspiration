@@ -99,6 +99,11 @@
   </div>
 
   <h2>Activity Feed</h2>
-
+  <div id="activity-feed">
+    <% @activities.each do |activity| %>
+      <hr>
+      <%= render_activity activity %> <br>
+    <% end %>
+  </div>
       </div>
 </div>
