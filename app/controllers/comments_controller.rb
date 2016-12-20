@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.delete
     flash[:success] = "Your comment has been deleted."
-    redirect_to comments_path
+    redirect_to pin_path(@comment.pin)
   end
 
   private
