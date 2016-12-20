@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161219035143) do
+ActiveRecord::Schema.define(version: 20161219234118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,17 @@ ActiveRecord::Schema.define(version: 20161219035143) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "shared_boards", force: :cascade do |t|
+    t.integer  "owner_id"
+    t.integer  "viewer_id"
+    t.integer  "board_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["board_id"], name: "index_shared_boards_on_board_id", using: :btree
+    t.index ["owner_id"], name: "index_shared_boards_on_owner_id", using: :btree
+    t.index ["viewer_id"], name: "index_shared_boards_on_viewer_id", using: :btree
   end
 
   create_table "user_roles", force: :cascade do |t|

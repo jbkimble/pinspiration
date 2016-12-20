@@ -103,27 +103,49 @@ RSpec.describe User, type: :model do
         user_1.set_private_boards(user_1, user_1)
 
         expect(user_1.private_boards.count).to eq(2)
-        expect(user)
       end
 
       it "returns the private boards that a user has been invited to" do
-        user_1 = create(:user)
-        user_2 = create(:user)
+        owner = create(:user)
+        viewer = create(:user)
 
-        user_1.boards.create(name:"first public board")
-        user_1.boards.create(name:"second public board")
-        user_1.boards.create(name:"first private board", isprivate:true)
-        user_1.boards.create(name:"second private board", isprivate:true)
+        owner.boards.create(name:"first public board")
+        owner.boards.create(name:"second public board")
+        owner.boards.create(name:"second private board", isprivate:true)
+        board = owner.boards.create(name:"first private board", isprivate:true)
 
-        user_2.boards.create(name:"first public board")
-        user_2.boards.create(name:"second public board")
-        user_2.boards.create(name:"user_2 private board", isprivate:true)
+        viewer.boards.create(name:"first public board")
+        viewer.boards.create(name:"second public board")
+        viewer.boards.create(name:"user_2 private board", isprivate:true)
+
+        SharedBoard.create!(owner_id:owner.id, viewer_id:viewer.id,board_id:board.id)
+
+        owner.set_private_boards(owner, viewer)
+
+        expect(owner.private_boards.first).to eq(board)
 
 
+      end
+      it "returns the all private boards that a user has been invited to" do
+        owner = create(:user)
+        viewer = create(:user)
 
-        user_1.set_private_boards(user_1, user_2)
+        owner.boards.create(name:"first public board")
+        owner.boards.create(name:"second public board")
+        board_1 = owner.boards.create(name:"first private board", isprivate:true)
+        board_2 = owner.boards.create(name:"second private board", isprivate:true)
 
-        user
+        viewer.boards.create(name:"first public board")
+        viewer.boards.create(name:"second public board")
+        viewer.boards.create(name:"user_2 private board", isprivate:true)
+
+        SharedBoard.create!(owner_id:owner.id, viewer_id:viewer.id,board_id:board_1.id)
+        SharedBoard.create!(owner_id:owner.id, viewer_id:viewer.id,board_id:board_2.id)
+
+        owner.set_private_boards(owner, viewer)
+
+        expect(owner.private_boards.first).to eq(board_1)
+        expect(owner.private_boards.second).to eq(board_2)
       end
     end
   end

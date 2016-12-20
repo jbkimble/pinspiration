@@ -16,8 +16,6 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
-  has_many :shared_boards
-
   before_validation :generate_slug
 
   attr_reader :private_boards
@@ -57,7 +55,12 @@ class User < ApplicationRecord
 
   def set_private_boards(user, current_user)
     @private_boards = boards.where(isprivate:true) if user == current_user
+    set_shared_private_boards(user, current_user) if user != current_user
   end
 
-
+  private
+    def set_shared_private_boards(user, current_user)
+      ids = SharedBoard.where(owner_id:user.id, viewer_id:current_user.id).pluck(:board_id)
+      @private_boards = Board.where(id: ids)
+    end
 end
