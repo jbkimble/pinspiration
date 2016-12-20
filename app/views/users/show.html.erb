@@ -96,5 +96,22 @@
         <% end %>
       </div>
     </div>
-      </div>
+
+    <div class="private">
+      <div class="boards-grid">
+        <div class="container-fluid">
+          <div class="row">
+            <%@user.private_boards.each do |board| %>
+            <div class="col-md-3">
+              <div class="public-board">
+                <br><br><br><br><br><br><br><br><br><br>
+                <%= link_to "#{board.name}", user_board_path(@user.slug, board.slug), :class => "board-title" %>
+                <p class="board-pin-count"> <%= "#{board.pins.count} Pins"%></p>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+    </div>
+
 </div>

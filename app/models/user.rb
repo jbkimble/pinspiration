@@ -60,7 +60,7 @@ class User < ApplicationRecord
 
   private
     def set_shared_private_boards(current_user)
-      ids = SharedBoard.where(owner_id:id, viewer_id:current_user.id).pluck(:board_id)
-      @private_boards = Board.where(id: ids)
+      board_ids = SharedBoard.where(owner_id:id, viewer_id:current_user.id).pluck(:board_id)
+      @private_boards = Board.where(id: board_ids)
     end
 end
