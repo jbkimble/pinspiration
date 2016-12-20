@@ -289,6 +289,10 @@
   padding-top: 20px;
 }
 
+.navbar-brand:hover {
+  color: #d43f3a !important;
+}
+
 .navbar-default {
     background-color: white;
     border-color: #e7e7e7;
@@ -337,9 +341,13 @@
 .menu {
   color: #B6B6B6;
   font-size: 25px;
+}
+
+.menu:hover {
+  color: #cdcfd3;
+}
 /*boards on profile page css*/
 /* add board styling*/
-}
 
 .add-public-board {
   height: 20em;
