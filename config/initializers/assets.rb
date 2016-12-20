@@ -12,3 +12,4 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( masonry.pkgd.min.js )
 Rails.application.config.assets.precompile += %w( imagesloaded.pkgd.min.js )
 Rails.application.config.assets.precompile += %w( pins.js )
+Rails.application.config.assets.precompile += %w( comments.js )
