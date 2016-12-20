@@ -420,12 +420,17 @@
 }
 
 .leave-comment {
-    color: #64686d;
+  color: #64686d;
 }
 
 .comment-options {
   color: #d9534f;
   font-size: 15px;
+}
+
+.comment-disabled {
+  font-size: 15px;
+  color: #b8bbc1;
 }
 
 .delete-edit {
