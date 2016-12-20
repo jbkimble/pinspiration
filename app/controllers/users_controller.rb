@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-
-
+  
   def show
+    @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.following_ids)
     @user = User.find_by(slug: params[:user])
     @boards = @user.boards.all
   end
