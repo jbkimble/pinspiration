@@ -18,9 +18,18 @@
       <h4>All Comments</h4>
     </li>
     <% @pin.comments.each do |comment| %>
-    <li class="list-group-item">
+    <li class="list-group-item comment-item">
       <p class="comment-time"><%= time_ago_in_words(comment.created_at) %> ago, <%= comment.user.username %> commented: </span>
       <p><%= comment.content %></p>
+      <% if comment.user == current_user %>
+        <%= link_to edit_comment_path(comment), id: "edit-comment" do %>
+          <i class="glyphicon glyphicon-pencil comment-options left"></i>
+        <% end %>
+
+        <%= link_to comment_path(comment), id: "delete-comment", method: "delete" do %>
+          <i class="glyphicon glyphicon-trash comment-options right"></i>
+        <% end %>
+      <% end %>
     </li>
     <% end %>
   </ul>

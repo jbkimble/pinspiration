@@ -406,7 +406,7 @@
 
 .comment-time {
   font-size: .8em;
-  color: #d9534f;
+  color: #B6B6B6;
 }
 
 .comment-btn {
@@ -421,4 +421,21 @@
 
 .leave-comment {
     color: #64686d;
+}
+
+.comment-options {
+  color: #d9534f;
+  font-size: 15px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.comment-item {
+  padding-bottom: 25px;
 }
