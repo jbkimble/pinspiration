@@ -12,8 +12,8 @@ describe "a user can log in" do
 
     expect(current_path).to eq(root_path)
     expect(page).to have_content("Successfully logged in as #{user.name}")
-    expect(page).to have_content("Logout")
-    expect(page).to_not have_content("Login")
+    expect(page).to have_selector("#logout")
+    expect(page).to_not have_selector("#login")
   end
 
   describe "a user cannot log in" do
@@ -28,8 +28,8 @@ describe "a user can log in" do
 
       expect(page).to have_content("Login failed, please try again.")
 
-      expect(page).to have_content("Login")
-      expect(page).to_not have_content("Logout #{user.name}")
+      expect(page).to have_selector("#login")
+      expect(page).to_not have_selector("#logout")
     end
 
     scenario "a user cannot log in with incomplete information" do
@@ -42,8 +42,8 @@ describe "a user can log in" do
       click_button "Login"
 
       expect(page).to have_content("Login failed, please try again.")
-      expect(page).to have_content("Login")
-      expect(page).to_not have_content("Logout #{user.name}")
+      expect(page).to have_selector("#login")
+      expect(page).to_not have_selector("#logout")
     end
   end
 end

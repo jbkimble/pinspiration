@@ -46,7 +46,7 @@ group :development, :test do
   gem 'factory_girl_rails' #creating items for tests
   gem 'simplecov' #so we can tell what's being hit
   gem 'database_cleaner' #keep it clean
-
+  gem 'selenium-webdriver'
 end
 
 group :test do
