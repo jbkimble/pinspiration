@@ -1,6 +1,6 @@
 <%= link_to "Logout", logout_path %>
 
-<%= render '/layouts/follow_button', :user => User.find_by(username: params[:user]) %>
+<%= render '/layouts/follow_button', :user => @user %>
 
 <div class="container">
   <div class="text-center profile">

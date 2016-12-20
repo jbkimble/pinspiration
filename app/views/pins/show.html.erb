@@ -21,7 +21,7 @@
     <li class="list-group-item">
       <div class="row">
         <div class="col-md-9">
-      <p class="comment-time"><%= time_ago_in_words(comment.created_at) %> ago, <%= link_to comment.user.username, show_user_path(comment.user) %> commented: </span>
+      <p class="comment-time"><%= time_ago_in_words(comment.created_at) %> ago, <%= link_to comment.user.username, show_user_path(comment.user.slug) %> commented: </span>
       <p><%= comment.content %>
       </div>
       <div class="col-md-3 delete-edit">
