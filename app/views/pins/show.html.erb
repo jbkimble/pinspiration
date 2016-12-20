@@ -19,8 +19,12 @@
     </li>
     <% @pin.comments.each do |comment| %>
     <li class="list-group-item">
+      <div class="row">
+        <div class="col-md-9">
       <p class="comment-time"><%= time_ago_in_words(comment.created_at) %> ago, <%= comment.user.username %> commented: </span>
       <p><%= comment.content %>
+      </div>
+      <div class="col-md-3 delete-edit">
       <% if comment.user == current_user %>
         <%= link_to edit_comment_path(comment), id: "edit-comment" do %>
           <i class="glyphicon glyphicon-pencil comment-options"></i>
@@ -30,7 +34,10 @@
           <i class="glyphicon glyphicon-trash comment-options"></i>
         <% end %>
       <% end %>
+    </div>
+  </div>
     </li>
+
     <% end %>
   </ul>
 </div>
