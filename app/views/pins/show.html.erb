@@ -26,7 +26,7 @@
             <%= link_to comment.user.username, show_user_path(comment.user.slug) %> commented: </p>
           <% if comment.user == current_user %>
             <div class="col-md-9">
-              <%= best_in_place_if comment.user == current_user, comment, :content, :as => :textarea %>
+              <%= best_in_place comment, :content, :as => :textarea, :ok_button => 'Save' %>
             </div>
             <div class="col-md-3 delete-edit">
         <%#= link_to edit_comment_path(comment), id: "edit-comment" do %>
