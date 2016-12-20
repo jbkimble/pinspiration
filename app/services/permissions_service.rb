@@ -32,7 +32,7 @@ class PermissionsService
       return true if controller == "users/boards" && action.in?(%w(index show))
       return true if controller == "admin/dashboard" && action.in?(%w(show))
       return true if controller == "passwords" && action.in?(%w(new create update))
-
+rspe
     end
 
     def user_permissions
