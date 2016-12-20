@@ -9,15 +9,15 @@ $(document).ready(function (){
       $grid.masonry('layout');
       });
 
-      $('.grid').on('mouseenter', '.grid-item', function () {
-        $(this).find(":button").show();
-      }).on('mouseleave', '.grid-item', function () {
-        $(this).find(":button").hide();
-      });
+  $('.grid').on('mouseenter', '.grid-item', function () {
+    $(this).find(":button").show();
+  }).on('mouseleave', '.grid-item', function () {
+    $(this).find(":button").hide();
+  });
 
-      $('.grid').on('mouseenter', '.grid-item', function () {
-        $(this).find(".pin-link").show();
-      }).on('mouseleave', '.grid-item', function () {
-        $(this).find(".pin-link").hide();
-      });
+  $('.grid').on('mouseenter', '.grid-item', function () {
+    $(this).find(".pin-link").show();
+  }).on('mouseleave', '.grid-item', function () {
+    $(this).find(".pin-link").hide();
+  });
 });

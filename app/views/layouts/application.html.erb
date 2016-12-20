@@ -19,6 +19,9 @@
   <% end %>
 
   <body>
+     <%= render partial: "layouts/navbar" %>
+     <div class="every-page">
     <%= yield %>
+  </div>
   </body>
 </html>

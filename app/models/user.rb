@@ -18,6 +18,8 @@ class User < ApplicationRecord
 
   before_validation :generate_slug
 
+  attr_reader :private_boards
+
   def generate_slug
     self.slug = username.parameterize if username
   end
@@ -28,6 +30,10 @@ class User < ApplicationRecord
 
   def admin?
     roles.exists?(name: "admin")
+  end
+
+  def public_boards
+    boards.where(private:false)
   end
 
   def follow(someuser)
@@ -42,4 +48,19 @@ class User < ApplicationRecord
     following.include?(someuser)
   end
 
+
+  def public_boards
+    boards.where(isprivate: false)
+  end
+
+  def set_private_boards(current_user)
+    @private_boards = boards.where(isprivate:true) if self == current_user
+    set_shared_private_boards(current_user) if self != current_user
+  end
+
+  private
+    def set_shared_private_boards(current_user)
+      board_ids = SharedBoard.where(owner_id:id, viewer_id:current_user.id).pluck(:board_id)
+      @private_boards = Board.where(id: board_ids)
+    end
 end

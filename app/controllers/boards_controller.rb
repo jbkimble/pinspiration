@@ -7,6 +7,7 @@ class BoardsController < ApplicationController
   def create
     @board = Board.create(board_params)
     @board.user = current_user
+    @board.isprivate = false if board_params[:isprivate] == "Public"
     if @board.save
       flash[:success] = "You have successfully create the board #{@board.name}."
       redirect_to user_board_path(@board.user.slug, @board.slug)
@@ -45,7 +46,7 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:id, :name, :private, :user_id)
+    params.require(:board).permit(:id, :name, :isprivate, :user_id)
   end
 
 end

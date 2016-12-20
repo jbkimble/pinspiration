@@ -67,4 +67,86 @@ RSpec.describe User, type: :model do
       expect(user).to respond_to(:boards)
     end
   end
+
+  describe "methods" do
+    context "#public_boards" do
+      it "returns an array of all a users public boards" do
+        user_1 = create(:user)
+        user_2 = create(:user)
+
+        user_1.boards.create(name:"first public board")
+        user_1.boards.create(name:"second public board")
+        user_1.boards.create(name:"second public board", isprivate:true)
+
+        user_2.boards.create(name:"first public board")
+        user_2.boards.create(name:"second public board")
+        user_2.boards.create(name:"user_2 private board", isprivate:true)
+
+        expect(user_1.public_boards.all? {|board| board.user_id == user_1.id})
+        expect(user_1.public_boards.all? {|board| board.isprivate == false})
+      end
+    end
+    context("#set_private_boards(user, current_user)") do
+      it "returns the correct private boards if the current_user is visiting thier own profile" do
+        user_1 = create(:user)
+        user_2 = create(:user)
+
+        user_1.boards.create(name:"first public board")
+        user_1.boards.create(name:"second public board")
+        user_1.boards.create(name:"first private board", isprivate:true)
+        user_1.boards.create(name:"second private board", isprivate:true)
+
+        user_2.boards.create(name:"first public board")
+        user_2.boards.create(name:"second public board")
+        user_2.boards.create(name:"user_2 private board", isprivate:true)
+
+        user_1.set_private_boards(user_1)
+
+        expect(user_1.private_boards.count).to eq(2)
+      end
+
+      it "returns the private boards that a user has been invited to" do
+        owner = create(:user)
+        viewer = create(:user)
+
+        owner.boards.create(name:"first public board")
+        owner.boards.create(name:"second public board")
+        owner.boards.create(name:"second private board", isprivate:true)
+        board = owner.boards.create(name:"first private board", isprivate:true)
+
+        viewer.boards.create(name:"first public board")
+        viewer.boards.create(name:"second public board")
+        viewer.boards.create(name:"user_2 private board", isprivate:true)
+
+        SharedBoard.create!(owner_id:owner.id, viewer_id:viewer.id,board_id:board.id)
+
+        owner.set_private_boards(viewer)
+
+        expect(owner.private_boards.first).to eq(board)
+
+
+      end
+      it "returns the all private boards that a user has been invited to" do
+        owner = create(:user)
+        viewer = create(:user)
+
+        owner.boards.create(name:"first public board")
+        owner.boards.create(name:"second public board")
+        board_1 = owner.boards.create(name:"first private board", isprivate:true)
+        board_2 = owner.boards.create(name:"second private board", isprivate:true)
+
+        viewer.boards.create(name:"first public board")
+        viewer.boards.create(name:"second public board")
+        viewer.boards.create(name:"user_2 private board", isprivate:true)
+
+        SharedBoard.create!(owner_id:owner.id, viewer_id:viewer.id,board_id:board_1.id)
+        SharedBoard.create!(owner_id:owner.id, viewer_id:viewer.id,board_id:board_2.id)
+
+        owner.set_private_boards( viewer)
+
+        expect(owner.private_boards.first).to eq(board_1)
+        expect(owner.private_boards.second).to eq(board_2)
+      end
+    end
+  end
 end

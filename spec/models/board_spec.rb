@@ -25,6 +25,14 @@ RSpec.describe Board, type: :model do
         board = create(:board)
         expect(board).to respond_to(:user)
       end
+      it "has many pin_boards" do
+        board = create(:board)
+        expect(board).to respond_to(:pin_boards)
+      end
+      it "has many pins" do
+        board = create(:board)
+        expect(board).to respond_to(:pins)
+      end
     end
   end
 end

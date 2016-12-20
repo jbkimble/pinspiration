@@ -1,0 +1,8 @@
+<h2> Password Reset </h2>
+
+<%= form_for @user, url: password_reset_path do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.submit "Send Token"%>
+<% end %>

@@ -1,0 +1,14 @@
+<h2>Create new password</h2>
+
+<%= form_for @user, url: update_password_path, method: :put do |f| %>
+  <%= f.label :verification_code %>
+  <%= f.text_field :verification_code %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit "Update password" %>
+<% end %>

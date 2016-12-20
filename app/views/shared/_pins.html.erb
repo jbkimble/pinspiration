@@ -1,18 +1,17 @@
 <%= javascript_include_tag('pins.js') %>
-
 <div class="container">
   <div class="grid-sizer"></div>
   <div class="grid">
-<% @pins.each do |pin| %>
-  <div class="grid-item pin">
-  <%#= pin.name %>
-  <%= image_tag pin.image%>
-  <div class="hover-button">
-    <button type="button" style="display: none;" href="#" class="btn btn-danger hover-button">Pin me! <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button>
+    <% @pins.each do |pin| %>
+    <div class="grid-item pin">
+      <%= link_to image_tag(pin.image), pin_path(pin), id: "#{pin.name}" %>
+      <%= link_to new_pin_board_path(pin_id: pin.id) do %>
+      <div class="hover-button">
+        <button type="button" style="display: none;" class="btn btn-danger hover-button">Pin me! <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button>
+      </div>
+      <% end %>
+      <p><%= link_to "Visit Source", pin.source, class: "pin-link", style: "display: none;" %></p>
+    </div>
+    <% end %>
   </div>
-  <p><%= link_to " Visit Source ", pin.source, class: "pin-link", style: "display: none;" %></p>
-
-  </div>
-  <% end %>
-</div>
 </div>

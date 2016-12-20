@@ -11,10 +11,18 @@ Rails.application.routes.draw do
 
   resources :comments
 
+  resources :pin_boards, except: [:show]
+
   resources :pins, path: 'pin'
 
   resources :users, only: [:new, :create, :edit, :update]
 
+  resources :relationships
+
+  get '/dashboard', to: 'users#show'
+  get '/password_reset', to: 'passwords#new'
+  post '/password_reset', to: 'passwords#create'
+  put '/password_reset', to: 'passwords#update', as: "update_password"
   get '/:user', to: 'users#show', as: 'show_user'
 
   namespace :users, as: :user, path: ":user" do
@@ -23,8 +31,9 @@ Rails.application.routes.draw do
     get '/:board', to: 'boards#show', as: 'board'
   end
 
-  resources :relationships
+  resources :relationships, only: [:create, :destroy]
 
   get '/dashboard', to: 'users#show'
+
 
 end

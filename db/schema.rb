@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161217041244) do
+ActiveRecord::Schema.define(version: 20161219234118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "boards", force: :cascade do |t|
     t.text     "name"
-    t.boolean  "private",    default: false
+    t.boolean  "isprivate",  default: false
     t.integer  "user_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20161217041244) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "pin_id"
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
@@ -75,6 +76,17 @@ ActiveRecord::Schema.define(version: 20161217041244) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "shared_boards", force: :cascade do |t|
+    t.integer  "owner_id"
+    t.integer  "viewer_id"
+    t.integer  "board_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["board_id"], name: "index_shared_boards_on_board_id", using: :btree
+    t.index ["owner_id"], name: "index_shared_boards_on_owner_id", using: :btree
+    t.index ["viewer_id"], name: "index_shared_boards_on_viewer_id", using: :btree
+  end
+
   create_table "user_roles", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "role_id"
@@ -90,10 +102,11 @@ ActiveRecord::Schema.define(version: 20161217041244) do
     t.string   "username"
     t.string   "password_digest"
     t.string   "phone"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.string   "avatar"
     t.string   "slug"
+    t.string   "verification_code"
   end
 
   add_foreign_key "boards", "users"
