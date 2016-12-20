@@ -13,10 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
 .body {
    font-family: Helvetica Neue;
    font-size: 12px;
  }
+
+.every-page {
+  padding-top: 50px;
+}
 
 .form-h3 {
   font-weight: bold;
@@ -147,7 +152,6 @@
 .num-follow {
   color: #6b6d70;
   font-weight: bold;
-  text-align: center;
 }
 
 .follow {
@@ -273,6 +277,74 @@
 .pin-pad {
   margin-top: -10px;
 }
+
+
+.navbar-brand {
+  font-family: 'Mr Dafoe', cursive;
+  color: #d9534f !important;
+  font-size: 2em !important;
+  font-weight: bold;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.navbar-brand:hover {
+  color: #d43f3a !important;
+}
+
+.navbar-default {
+    background-color: white;
+    border-color: #e7e7e7;
+    height: 60px;
+}
+
+.input-group {
+  padding-top: 2px;
+}
+
+.nav-form {
+    background-color: #EFEFEF;
+    height: 40px;
+    width: 875px !important;
+    border-color: #EFEFEF;
+    font-size: 1.2em;
+    border-radius: 5px;
+    box-shadow: none;
+    color: #B6B6B6;
+}
+
+.glyphicon-search {
+    color: #B6B6B6;
+    background-color: #EFEFEF;
+    font-size: 20px;
+}
+
+.input-group-btn {
+  height: 40px;
+  border-color: #EFEFEF;
+  color: #B6B6B6;
+}
+
+.btn-search {
+  background-color: #EFEFEF;
+  height: 40px;
+  border-color: #EFEFEF;
+  color: #B6B6B6;
+  border-radius: 5px;
+}
+
+.nav-button {
+  display: none;
+}
+
+.menu {
+  color: #B6B6B6;
+  font-size: 25px;
+}
+
+.menu:hover {
+  color: #cdcfd3;
+}
 /*boards on profile page css*/
 /* add board styling*/
 
@@ -322,4 +394,8 @@
 }
 .board-pin-count{
   color: #E4E4E4;
+}
+
+.navbar-toggle collapsed {
+  background-color: white;
 }
