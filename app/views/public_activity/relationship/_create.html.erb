@@ -1,0 +1,12 @@
+<% if activity.trackable %>
+  <% if activity.owner && activity.owner.avatar %>
+    <%= image_tag(activity.owner.avatar) %>
+  <% end %>
+  <%= link_to activity.owner.username, show_user_path(activity.owner.username) if activity.owner %>
+  followed
+  <%= link_to activity.trackable.followed.username, show_user_path(activity.trackable.followed.username) if activity.owner%>
+  <% if activity.trackable.followed && activity.trackable.followed.avatar %>
+    <%= image_tag(activity.trackable.followed.avatar) %>
+  <% end %>
+  <%= time_ago_in_words(activity.trackable.created_at) %> ago
+<% end %>
