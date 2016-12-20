@@ -1,6 +1,4 @@
-<%= link_to "Logout", logout_path %>
 
-<%= render '/layouts/follow_button', :user => @user %>
 
 <div class="container">
   <div class="text-center profile">
@@ -56,12 +54,13 @@
           <a href="#" class="profile-link">Pins</a>
         </div>
         <div class="col-md-1">
-          <p class="num-follow"><%= "#{@user.followers.count}" %></p>
+          <%= render '/layouts/follow_button', :user => @user %>
+          <!-- <p class="num-follow"><%= "#{@user.followers.count}" %></p>
           <a href="#" class="profile-link">Followers</a>
         </div>
         <div class="col-md-1">
           <p class="num-follow"><%= "#{@user.following.count}" %></p>
-          <a href="#" class="profile-link">Following</a>
+          <a href="#" class="profile-link">Following</a> -->
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-1"></div>
