@@ -28,7 +28,8 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
 
     if @comment.update(comment_params)
-      flash.now[:success] = "Your comment has been updated."
+      flash[:success] = "Your comment has been updated."
+      redirect_to pin_path(@comment.pin)
     else
       flash.now[:error] = "Please try again."
       render :edit
