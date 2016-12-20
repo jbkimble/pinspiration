@@ -10,8 +10,9 @@ describe "User can edit comment" do
 
     visit comments_path
     click_on "Edit Comment"
+
     fill_in "comment[content]", with: new_comment
-    click_on "Update Comment"
+    click_on "Submit"
 
     expect(page).to have_content ("my new comment")
     expect(page).to have_content ("Your comment has been updated.")
