@@ -27,7 +27,7 @@ describe "User can create board" do
     expect(page).to have_content("Board creation failed, please try again")
   end
 
-  xscenario "User can create a public board" do
+  scenario "User can create a public board" do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
