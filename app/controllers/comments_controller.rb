@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user = current_user
     if @comment.save
+      @comment.create_activity :create, owner: current_user
       flash[:success] = "Your comment has been saved."
       redirect_to pin_path(@comment.pin)
     else
