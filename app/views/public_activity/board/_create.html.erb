@@ -1,0 +1,9 @@
+<% if activity.trackable %>
+  <% if activity.trackable.user.avatar %>
+    <%= image_tag(activity.trackable.user.avatar) %>
+  <% end %>
+  <%= link_to activity.trackable.user.username, show_user_path(activity.trackable.user.username) %>
+  created a new board
+  <%= link_to activity.trackable.name, user_board_path(activity.trackable.name, activity.trackable.user.slug) %>
+  <%= time_ago_in_words(activity.trackable.created_at) %> ago
+<% end %>

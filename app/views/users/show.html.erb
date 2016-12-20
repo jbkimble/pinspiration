@@ -27,11 +27,11 @@
         <div class="col-md-2">
         </div>
         <div class="col-md-2">
-          <p class="num-follow"> <%= current_user.followers.count %> </p>
+          <p class="num-follow"> <%= @user.followers.count %> </p>
           <p><a href="<%= user_followers_path(@user) %>" class="follow">Followers</a></p>
         </div>
         <div class="col-md-2">
-          <p class="num-follow"> <%= current_user.following.count %> </p>
+          <p class="num-follow"> <%= @user.following.count %> </p>
           <p><a href="<%= user_following_path(@user) %>" class="follow">Following</a></p>
         </div>
       </div>
@@ -100,5 +100,18 @@
           </div>
         </div>
     </div>
+
+    <% if params[:user] == current_user.slug %>
+  <h2>Activity Feed</h2>
+  <div id="activity-feed">
+    <% @activities.each do |activity| %>
+      <% if activity.key[-6..-1] == "create" %>
+        <hr>
+        <%= render_activity activity %> <br>
+      <% end %>
+    <% end %>
+  </div>
+      </div>
+<% end %>
 
 </div>
