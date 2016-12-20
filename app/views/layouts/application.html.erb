@@ -14,13 +14,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
 
-  <% flash.each do |type, message| %>
-    <%= content_tag :div, sanitize(message), class: "alert-#{type}" %>
-  <% end %>
 
   <body>
      <%= render partial: "layouts/navbar" %>
      <div class="every-page">
+       <% flash.each do |type, message| %>
+       <div class="alert alert-<%= type %> alert-dismissible", role: "alert">
+       <%#= content_tag :div, sanitize(message), class: "alert alert-#{type} alert-dismissible", role: "alert" do %>
+       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong><%= message %></strong>
+      </div>
+       <% end %>
     <%= yield %>
   </div>
   </body>
