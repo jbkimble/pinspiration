@@ -23,6 +23,12 @@ Rails.application.routes.draw do
   get '/password_reset', to: 'passwords#new'
   post '/password_reset', to: 'passwords#create'
   put '/password_reset', to: 'passwords#update', as: "update_password"
+
+  namespace :admin do
+    get '/dashboard', to: 'dashboard#show'
+  end
+
+
   get '/:user', to: 'users#show', as: 'show_user'
 
   namespace :users, as: :user, path: ":user" do
