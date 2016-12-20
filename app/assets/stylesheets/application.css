@@ -415,5 +415,10 @@
 }
 
 .all-comments {
-    background-color: #EFEFEF;
+  background-color: #EFEFEF;
+  color: #64686d;
+}
+
+.leave-comment {
+    color: #64686d;
 }
