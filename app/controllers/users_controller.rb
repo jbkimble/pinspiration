@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(slug: params[:user])
-    @user.set_private_boards(@user,current_user)
+    @user.set_private_boards(current_user)
   end
 
   def new
