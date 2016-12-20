@@ -403,3 +403,17 @@
 .alert {
   text-align: center;
 }
+
+.comment-time {
+  font-size: .8em;
+  color: #64686d;
+}
+
+.comment-btn {
+  background-color: #B6B6B6;
+  color: white;
+}
+
+.all-comments {
+    background-color: #EFEFEF;
+}

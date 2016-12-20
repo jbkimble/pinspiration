@@ -10,8 +10,22 @@
     <h4> Leave a comment: </h4>
     <%= render partial: "shared/comment_form" %>
   <% end %>
-  <h4>All Comments</h4>
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4">
+    <ul class="list-group">
+      <li class="list-group-item all-comments">
+      <h4>All Comments</h4>
+    </li>
     <% @pin.comments.each do |comment| %>
+    <li class="list-group-item">
+      <p class="comment-time"><%= time_ago_in_words(comment.created_at) %> ago, <%= comment.user.username %> commented: </span>
+      <hr style="short-hr">
       <p><%= comment.content %></p>
+    </li>
     <% end %>
+  </ul>
+</div>
+<div class="col-md-4">
+</div>
 </div>
