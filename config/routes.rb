@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     get '/dashboard', to: 'dashboard#show'
     resources :pins, only: [:index, :show, :destroy]
     resources :boards, only: [:destroy]
+    resources :comments, only: [:destroy]
     resources :users, only: [:index, :show, :edit, :update]
   end
 

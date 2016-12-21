@@ -5,7 +5,7 @@
     <%= form_for [:admin, @user] do |f| %>
       <%= f.select :status, User.statuses.keys.to_a%>
 
-      <%= f.submit %>
+      <%= f.submit%>
     <% end %>
 
   </div>
@@ -22,6 +22,11 @@
 
   <h4>Comments</h4>
     <% @user.comments.each do |comment| %>
-      <%= comment.content %><br>
+    <div class="col-md-12">
+      <p><%= comment.content %></p>
+      <%= link_to admin_comment_path(comment), method: "delete" do%>
+      <button type="button" class="btn btn-xs btn-danger hover-button">Delete</button>
+      <% end %>
+    </div>
     <% end %>
 </div>
