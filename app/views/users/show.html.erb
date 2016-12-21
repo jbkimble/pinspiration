@@ -8,14 +8,10 @@
     <div class="dropdown">
         <span class="glyphicon glyphicon-option-horizontal wrench-style hover-circle" data-toggle="dropdown"></span>
         <ul class="dropdown-menu drop-pad" aria-labelledby="dropdownMenu1">
-        <li><a href="#">Action</a></li>
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Something else here</a></li>
         <li role="separator" class="divider"></li>
         <li><%= link_to "Logout", logout_path %></li>
       </ul>
     </div>
-
     <div class="profile-info">
       <h1 class="profile-h1"><%= @user.name %></h1>
       <% if @user.avatar %>
@@ -23,17 +19,6 @@
       <% else %>
         <%= image_tag("https://s.pinimg.com/images/user/default_444.png", class: "avatar-style") %>
       <% end %>
-      <div class="row text-left">
-        <div class="col-md-2">
-        </div>
-        <div class="col-md-2">
-          <p class="num-follow"> <%= @user.followers.count %> </p>
-          <p><a href="<%= user_followers_path(@user) %>" class="follow">Followers</a></p>
-        </div>
-        <div class="col-md-2">
-          <p class="num-follow"> <%= @user.following.count %> </p>
-          <p><a href="<%= user_following_path(@user) %>" class="follow">Following</a></p>
-        </div>
       </div>
       <br>
       <br>
@@ -93,6 +78,7 @@
     </div>
 
     <div class="private">
+      <h2 class="activity-header">Private Boards</h2>
       <div class="boards-grid">
         <div class="container-fluid">
           <div class="row">
