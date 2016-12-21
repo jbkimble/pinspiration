@@ -2,4 +2,12 @@
 
   <h2><%= @user.name %></h2>
 
+  <h4>Boards</h4>
+    <% @user.boards.each do |board| %>
+      <%= board.name %>
+      <% board.pins.each do |pin| %>
+        <%= link_to pin.name, admin_pin_path(pin) %>
+        <%= image_tag pin.image, class: "thumbnail"%>
+      <% end %>
+  <% end %>
 </div>
