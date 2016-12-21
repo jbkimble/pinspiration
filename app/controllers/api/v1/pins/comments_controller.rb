@@ -17,9 +17,9 @@ class Api::V1::Pins::CommentsController < RequestController
     end
   end
 
-  # private
-  #
-  # def comment_params
-  #   require(:comment).permit(:id, :content, :user_id, :pin_id)
-  # end
+  private
+
+  def comment_params
+    params.require(:comment).permit(:content)
+  end
 end
