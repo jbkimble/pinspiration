@@ -458,3 +458,23 @@
   text-align:center;
   font-size: .9em;
 }
+
+.generic-header {
+  color: #b4b6ba;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+}
+
+.center-it {
+  text-align: center;
+}
+
+.board-header{
+  color: #b4b6ba;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
