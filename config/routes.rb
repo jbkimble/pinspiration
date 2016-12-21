@@ -7,14 +7,13 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
+  resources :shared_boards, only: [:create]
   root 'pins#index'
 
   resources :comments
 
   resources :pin_boards, except: [:show]
-
   resources :pins, path: 'pin'
-
   resources :users, only: [:new, :create, :edit, :update]
 
   resources :relationships

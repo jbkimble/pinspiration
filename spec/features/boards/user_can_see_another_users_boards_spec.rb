@@ -17,6 +17,7 @@ describe "User can view another user's boards" do
     visit show_user_path(showing_user.slug)
 
     expect(current_path).to eq("/#{showing_user.slug}")
+    
     expect(page).to have_content("showing user board one public")
     expect(page).to have_content("showing user board two public")
 
