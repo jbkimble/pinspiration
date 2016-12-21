@@ -43,9 +43,11 @@ class Api::V1::CommentsController < ApiController
   end
 
   def destroy
+        comments = Comment.all
     comment = Comment.find(params[:id])
     if comment.user = User.find_by(api_key: params[:api_key])
       comment.delete
+      render json: comments
     else
       format.json { render json: comment.errors, status: :unprocessable_entity }
     end

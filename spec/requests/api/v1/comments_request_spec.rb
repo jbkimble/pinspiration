@@ -44,4 +44,31 @@ describe "comments endpoints" do
       expect(pin_json["content"]).to_not eq("Stuff and things")
     end
   end
+
+  context "DELETE /comments?id" do
+    it "Edits a specific comment" do
+      user = create(:user, api_key: "1234567")
+      pin = create(:pin)
+      comment1 = create(:comment, user: user, pin_id: pin.id)
+      comment2 = create(:comment, content: "Stuff and things", user: user, pin_id: pin.id)
+
+      get "/api/v1/comments?pin_id=#{pin.id}&api_key=#{user.api_key}"
+
+      pin_json = JSON.parse(response.body)
+
+      expect(pin_json.count).to eq(2)
+      expect(pin_json.first["id"]).to eq(comment1.id)
+      expect(pin_json.last["id"]).to eq(comment2.id)
+
+      # headers = { "CONTENT_TYPE" => "application/json" }
+      delete "/api/v1/comments?id=#{comment2.id}&api_key=#{user.api_key}"#, headers
+
+      pin_json = JSON.parse(response.body)
+      expect(pin_json.count).to eq(1)
+      expect(pin_json.first["id"]).to eq(comment1.id)
+      expect(pin_json.last["id"]).to eq(comment1.id)
+      # expect(pin_json["content"]).to eq("Hello World")
+      # expect(pin_json["content"]).to_not eq("Stuff and things")
+    end
+  end
 end
