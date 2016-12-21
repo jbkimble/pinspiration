@@ -34,9 +34,9 @@ Rails.application.routes.draw do
       namespace :pins do
         get '/:id/comments', to: 'comments#index'
         post '/:id/comments', to: 'comments#create'
-        put '/:id/comments', to: 'comments#update'
-        delete '/:id/comments', to: 'comments#destroy'
       end
+      put '/comments', to: 'comments#update'
+      delete '/comments', to: 'comments#destroy'
     end
   end
 
