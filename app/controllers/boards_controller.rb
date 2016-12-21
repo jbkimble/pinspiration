@@ -9,6 +9,7 @@ class BoardsController < ApplicationController
     @board.user = current_user
     @board.isprivate = false if board_params[:isprivate] == "Public"
     if @board.save
+      @board.create_activity :create, owner: current_user
       flash[:success] = "You have successfully create the board #{@board.name}."
       redirect_to user_board_path(@board.user.slug, @board.slug)
     else

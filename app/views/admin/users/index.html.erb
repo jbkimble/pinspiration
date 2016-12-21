@@ -1,0 +1,9 @@
+
+<div class="container">
+  <h2>All Users</h2>
+
+  <% @users.each do |user| %>
+    <%= link_to user.username, admin_user_path(user) %><br>
+  <% end %>
+
+</div>
