@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       namespace :pins do
         get '/:id/comments', to: 'comments#index'
+        post '/:id/comments', to: 'comments#create'
       end
     end
   end
