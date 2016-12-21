@@ -57,7 +57,7 @@ class Seed2
       board = Board.find(Random.new.rand(1..1000))
       pin = Pin.create!(
         name: Faker::Hipster.word,
-        image: Faker::Avatar.image,
+        image: Faker::Placeholdit.image("200x200"),
         source: Faker::Internet.url
       )
       puts "#{i}: Pin #{pin.name} created for #{board.name}."
