@@ -20,7 +20,7 @@
  }
 
 .every-page {
-  padding-top: 50px;
+  padding-top: 40px;
 }
 
 .form-h3 {
@@ -398,4 +398,46 @@
 
 .navbar-toggle collapsed {
   background-color: white;
+}
+
+.alert {
+  text-align: center;
+}
+
+.comment-time {
+  font-size: .8em;
+  color: #B6B6B6;
+}
+
+.comment-btn {
+  background-color: #B6B6B6;
+  color: white;
+}
+
+.all-comments {
+  background-color: #EFEFEF;
+  color: #64686d;
+}
+
+.leave-comment {
+  color: #64686d;
+}
+
+.comment-options {
+  color: #d9534f;
+  font-size: 15px;
+}
+
+.comment-disabled {
+  font-size: 15px;
+  color: #b8bbc1;
+}
+
+.delete-edit {
+  padding-top: 30px;
+}
+
+.thumbnail {
+  width: auto;
+  height: 75px;
 }

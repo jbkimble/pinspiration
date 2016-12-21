@@ -1,6 +1,4 @@
-<%= link_to "Logout", logout_path %>
 
-<%= render '/layouts/follow_button', :user => User.find_by(username: params[:user]) %>
 
 <div class="container">
   <div class="text-center profile">
@@ -26,14 +24,14 @@
         <%= image_tag("https://s.pinimg.com/images/user/default_444.png", class: "avatar-style") %>
       <% end %>
       <div class="row text-left">
-        <div class="col-md-4">
+        <div class="col-md-2">
         </div>
         <div class="col-md-2">
-          <p class="num-follow"> <%= current_user.followers.count %> </p>
+          <p class="num-follow"> <%= @user.followers.count %> </p>
           <p><a href="<%= user_followers_path(@user) %>" class="follow">Followers</a></p>
         </div>
         <div class="col-md-2">
-          <p class="num-follow"> <%= current_user.following.count %> </p>
+          <p class="num-follow"> <%= @user.following.count %> </p>
           <p><a href="<%= user_following_path(@user) %>" class="follow">Following</a></p>
         </div>
       </div>
@@ -44,9 +42,7 @@
   <div class="counts">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-1"></div>
-        <div class="col-md-1"></div>
+        <div class="col-md-3"></div>
         <div class="col-md-1">
           <p class="num-follow"><%= "#{@user.boards.count}" %></p>
           <a href="#" class="profile-link">Boards</a>
@@ -56,19 +52,10 @@
           <a href="#" class="profile-link">Pins</a>
         </div>
         <div class="col-md-1">
-          <p class="num-follow"><%= "#{@user.followers.count}" %></p>
-          <a href="#" class="profile-link">Followers</a>
+          <%= render '/layouts/follow_button', :user => @user %>
         </div>
-        <div class="col-md-1">
-          <p class="num-follow"><%= "#{@user.following.count}" %></p>
-          <a href="#" class="profile-link">Following</a>
-        </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-1"></div>
-        <div class="col-md-1"></div>
-        <div class="col-md-1"></div>
-        <div class="col-md-1"></div>
-        <div class="col-md-1"></div>
+        <div class="col-md-6"></div>
+
 
       </div>
 
@@ -113,5 +100,18 @@
           </div>
         </div>
     </div>
+
+    <% if params[:user] == current_user.slug %>
+  <h2>Activity Feed</h2>
+  <div id="activity-feed">
+    <% @activities.each do |activity| %>
+      <% if activity.key[-6..-1] == "create" %>
+        <hr>
+        <%= render_activity activity %> <br>
+      <% end %>
+    <% end %>
+  </div>
+      </div>
+<% end %>
 
 </div>

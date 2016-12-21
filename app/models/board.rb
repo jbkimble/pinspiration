@@ -1,4 +1,6 @@
 class Board < ApplicationRecord
+  include PublicActivity::Common
+  
   belongs_to :user
   has_many :pin_boards
   has_many :pins, through: :pin_boards
