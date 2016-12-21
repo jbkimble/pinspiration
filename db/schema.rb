@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20161221185445) do
     t.string   "avatar",            default: "https://s.pinimg.com/images/user/default_444.png"
     t.string   "slug"
     t.string   "verification_code"
+    t.integer  "status",            default: 0
   end
 
   add_foreign_key "boards", "users"
