@@ -21,7 +21,6 @@ class CommentsController < ApplicationController
       flash.now[:error] = "Please try again."
       render :new
     end
-    #@comment = Faraday.post(data from form)
   end
 
   def edit

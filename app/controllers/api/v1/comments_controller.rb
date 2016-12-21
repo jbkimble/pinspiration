@@ -13,11 +13,10 @@ class Api::V1::CommentsController < ApiController
 
     respond_to do |format|
       if comment.save
-        # format.html { redirect_to comment }
+        format.html { redirect_to comment }
         format.json {render json: comment }
-        # format.json { render action: 'show', status: :created, location: @comment }
       else
-        # format.html { render action: 'new' }
+        format.html { render action: 'new' }
         format.json { render json: comment.errors, status: :unprocessable_entity }
       end
     end
@@ -27,55 +26,20 @@ class Api::V1::CommentsController < ApiController
     comment = Comment.find(params[:id])
     comment.user = User.find_by(api_key: params[:api_key])
     if comment.update(comment_params)
-      # format.html { redirect_to comment }
       render json: comment
-      # format.json {render json: comment }
-      # format.json { render action: 'show', status: :created, location: @comment }
-    # else
-      # format.html { render action: 'new' }
-      # format.json { render json: comment.errors, status: :unprocessable_entity }
-
+     else
+      render json: comment.errors, status: :unprocessable_entity
     end
   end
 
-  # def create
-  #   pin = Pin.find(params[:pin_id])
-  #   comment = pin.comments.new(comment_params)
-  #   comment.user = User.find_by(api_key: params[:api_key])
-  #
-  #   respond_to do |format|
-  #     if comment.save
-  #       format.html { redirect_to comment, flash[:success] = "Your comment was created" }
-  #       format.json {render json: comment }
-  #     else
-  #       format.html { render action: 'new', flash[:danger] = "Your comment was updated" }
-  #       format.json { render json: comment.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-  #
-  # def update
-  #   comment = Comment.find(params[:id])
-  #   comment.user = User.find_by(api_key: params[:api_key])
-  #   respond_to do |format|
-  #     if comment.update(comment_params)
-  #       format.html { redirect_to comment, flash[:success] = "Your comment was updated" }
-  #       format.json {render json: comment }
-  #     else
-  #       format.html { render action: 'new', flash[:danger] = "Your comment was not updated" }
-  #       format.json { render json: comment.errors, status: :unprocessable_entity }
-  #   end
-  #   end
-  # end
-
   def destroy
-        comments = Comment.all
+    comments = Comment.all
     comment = Comment.find(params[:id])
     if comment.user = User.find_by(api_key: params[:api_key])
       comment.delete
       render json: comments
     else
-      format.json { render json: comment.errors, status: :unprocessable_entity }
+      render json: comment.errors, status: :unprocessable_entity
     end
   end
 end
