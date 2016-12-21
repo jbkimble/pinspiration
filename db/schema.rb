@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220220754) do
+ActiveRecord::Schema.define(version: 20161221182148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20161220220754) do
     t.string   "avatar"
     t.string   "slug"
     t.string   "verification_code"
+    t.string   "api_key"
   end
 
   add_foreign_key "boards", "users"

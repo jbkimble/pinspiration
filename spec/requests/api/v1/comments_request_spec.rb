@@ -6,7 +6,7 @@ describe "pins comments endpoints" do
       pin = create(:pin)
       create_list(:comment, 3, pin_id: pin.id)
 
-      get "/api/v1/pins/#{pin.id}/comments"
+      get "/api/v1/comments?pin_id=#{pin.id}"
 
       pin_json = JSON.parse(response.body)
 

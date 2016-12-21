@@ -2,6 +2,8 @@ class CommentsController < ApplicationController
 
   def index
     @comments = Comment.all
+    #@item = Item.find(params[:id])
+    #@comments = Faraday.get(/api/v1/comments?item_id=1)
   end
 
   def new
@@ -19,6 +21,7 @@ class CommentsController < ApplicationController
       flash.now[:error] = "Please try again."
       render :new
     end
+    #@comment = Faraday.post(data from form)
   end
 
   def edit
