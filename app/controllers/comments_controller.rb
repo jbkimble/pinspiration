@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user = current_user
     if @comment.save
+      @comment.create_activity :create, owner: current_user
       flash[:success] = "Your comment has been saved."
       redirect_to pin_path(@comment.pin)
     else
@@ -26,9 +27,10 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
+
     if @comment.update(comment_params)
-      redirect_to comments_path
-      flash[:sucess] = "Your comment has been updated."
+      flash[:success] = "Your comment has been updated."
+      redirect_to pin_path(@comment.pin)
     else
       flash.now[:error] = "Please try again."
       render :edit
@@ -39,7 +41,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.delete
     flash[:success] = "Your comment has been deleted."
-    redirect_to comments_path
+    redirect_to pin_path(@comment.pin)
   end
 
   private

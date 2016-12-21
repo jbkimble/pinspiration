@@ -1,17 +1,55 @@
+
+<%= javascript_include_tag('comments.js') %>
 <div class="container text-center pin-show">
   <%= link_to image_tag(@pin.image, class: "pin-show-image"), :back %><br>
   <%= link_to new_pin_board_path(pin_id: @pin.id) do %>
-    <button type="button" class="btn btn-danger button-pin">Pin me! <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button>
+    <button type="button" class="btn btn-danger button-pin">Pin me! <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></button>
   <% end %>
   <h4 class="pin-pad"><%= @pin.name %></h4>
   Pin from <span class="form-link"><%= link_to @pin.source, @pin.source %></span><br>
   <hr>
   <% if current_user %>
-    <h4> Leave a comment: </h4>
+    <h4 class="leave-comment"> Leave a comment: </h4>
     <%= render partial: "shared/comment_form" %>
   <% end %>
-  <h4>All Comments</h4>
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4">
+    <ul class="list-group">
+      <li class="list-group-item all-comments">
+      <h4>All Comments</h4>
+    </li>
     <% @pin.comments.each do |comment| %>
-      <p><%= comment.content %></p>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-9">
+          <p class="comment-time"><%= time_ago_in_words(comment.created_at) %> ago,
+            <%= link_to comment.user.username, show_user_path(comment.user.slug) %> commented: </p>
+          <% if comment.user == current_user %>
+              <%= best_in_place comment, :content, :as => :textarea, :ok_button => 'Save' %>
+              <p class="comment-time">click text to edit</p>
+            </div>
+            <div class="col-md-3 delete-edit">
+
+              <%= link_to comment_path(comment), id: "delete-comment", method: "delete" do %>
+                <i class="glyphicon glyphicon-trash comment-options"></i>
+              <% end %>
+            </div>
+          <% else %>
+            <!-- <div class="col-md-9"> -->
+              <p><%= comment.content %></p>
+            </div>
+        <!-- <i class="glyphicon glyphicon-pencil comment-disabled"></i> -->
+            <div class="col-md-3 delete-edit">
+              <i class="glyphicon glyphicon-trash comment-disabled"></i>
+            </div>
+          <% end %>
+        </div>
+      </li>
+
     <% end %>
+  </ul>
+</div>
+<div class="col-md-4">
+</div>
 </div>

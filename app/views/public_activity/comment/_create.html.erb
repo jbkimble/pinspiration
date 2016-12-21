@@ -1,0 +1,10 @@
+<% if activity.trackable %>
+  <% if activity.owner.avatar %>
+    <%= image_tag(activity.owner.avatar) %>
+  <% end %>
+  <%= link_to activity.trackable.user.username, show_user_path(activity.trackable.user.username) %>
+  commented on the pin
+  <%= image_tag(activity.trackable.pin.image) %>
+  <%= link_to activity.trackable.pin.name, pin_path(activity.trackable.pin.id) %>
+  <%= time_ago_in_words(activity.trackable.created_at) %> ago
+<% end %>

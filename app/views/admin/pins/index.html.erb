@@ -1,0 +1,13 @@
+<div class="container">
+
+  <h2> All Pins </h2>
+
+    <% @pins.each do |pin| %>
+      <div class="col-md-2">
+        <p><%= link_to pin.name, admin_pin_path(pin) %>
+        <%= image_tag pin.image, class: "thumbnail"%>
+        </p>
+      </div>
+    <% end %>
+
+</div>
