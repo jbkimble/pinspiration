@@ -32,9 +32,6 @@ describe "admin sees users" do
     expect(current_path).to eq(admin_user_path(user1.id))
 
     expect(page).to have_content(single_board.name)
-    expect(page).to have_content(single_board.pins.first.name)
-    expect(page).to have_content(single_board.pins.second.name)
-    expect(page).to have_content(single_board.pins.third.name)
   end
 
 end

@@ -32,6 +32,7 @@ class PermissionsService
       return true if controller == "users/boards" && action.in?(%w(index show))
       return true if controller == "admin/dashboard" && action.in?(%w(show))
       return true if controller == "admin/pins" && action.in?(%w(index show destroy))
+      return true if controller == "admin/boards" && action.in?(%w(destroy))
       return true if controller == "admin/users" && action.in?(%w(index show edit update))
       return true if controller == "passwords" && action.in?(%w(new create update))
     end
