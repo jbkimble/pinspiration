@@ -1,13 +1,20 @@
 <div class="container">
-
-  <h2><%= @user.name %></h2>
-
+  <div class="user-info">
+    <h2><%= @user.name %></h2>
+    <p>User Status: <%= @user.status %></p>
+  </div>
   <h4>Boards</h4>
     <% @user.boards.each do |board| %>
-      <%= board.name %>
-      <% board.pins.each do |pin| %>
-        <%= link_to pin.name, admin_pin_path(pin) %>
-        <%= image_tag pin.image, class: "thumbnail"%>
+      <div class="col-md-2">
+        <%= board.name %>
+      </div>
+    <% end %>
+    <br><br>
+    <h4>Pins</h4>
+      <% @user.pins.each do |pin| %>
+        <div class="col-md-2">
+          <%= link_to pin.name, admin_pin_path(pin) %>
+          <%= image_tag pin.image, class: "thumbnail"%>
+        </div>
       <% end %>
-  <% end %>
 </div>
