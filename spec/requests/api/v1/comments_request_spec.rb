@@ -46,7 +46,7 @@ describe "comments endpoints" do
   end
 
   context "DELETE /comments?id" do
-    it "Edits a specific comment" do
+    it "Deletes a specific comment" do
       user = create(:user, api_key: "1234567")
       pin = create(:pin)
       comment1 = create(:comment, user: user, pin_id: pin.id)

@@ -7,9 +7,6 @@ class Api::V1::CommentsController < ApiController
   end
 
   def create
-    #respond_wih Comment.create(comment_params)
-
-    #serializer?
     pin = Pin.find(params[:pin_id])
     comment = pin.comments.new(comment_params)
     comment.user = User.find_by(api_key: params[:api_key])
@@ -25,8 +22,6 @@ class Api::V1::CommentsController < ApiController
       end
     end
   end
-
-
 
   def update
     comment = Comment.find(params[:id])
