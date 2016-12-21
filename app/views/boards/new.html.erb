@@ -1,12 +1,13 @@
 <div class="container">
-  <h2>Create New Board</h2>
+  <h2 class="board-header" >Create New Board</h2>
 
-  <%= form_for @board do |f| %>
-    <%=f.label :name  %>
-    <%=f.text_field :name  %>
-    <%= f.select :isprivate, ['Public', 'Private'] %>
-    <%= f.submit %>
-  <% end %>
-
+  <div class="center-it">
+    <%= form_for @board do |f| %>
+      <%=f.label :name  %>
+      <%=f.text_field :name  %>
+      <%= f.select :isprivate, ['Public', 'Private'] %>
+      <%= f.submit %>
+    <% end %>
+  </div>
 
 </div>
