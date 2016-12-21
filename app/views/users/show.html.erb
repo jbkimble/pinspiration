@@ -19,7 +19,7 @@
     </div>
 
     <div class="profile-info">
-      <h1 class="profile-h1"><%= @user.username %></h1>
+      <h1 class="profile-h1"><%= @user.name %></h1>
       <% if @user.avatar %>
         <%= image_tag(@user.avatar, class: "avatar-style") %><br>
       <% else %>
@@ -48,19 +48,19 @@
         <div class="col-md-1"></div>
         <div class="col-md-1"></div>
         <div class="col-md-1">
-          <p class="num-follow"><%= "#{@user.boards.count}" %></p>
+          <p class="num-follow"><%= @user.boards.count %></p>
           <a href="#" class="profile-link">Boards</a>
         </div>
         <div class="col-md-1">
-          <p class="num-follow"><%= "#{@user.boards.count}" %></p>
+          <p class="num-follow"><%= @user.boards.count %></p>
           <a href="#" class="profile-link">Pins</a>
         </div>
         <div class="col-md-1">
-          <p class="num-follow"><%= "#{@user.followers.count}" %></p>
+          <p class="num-follow"><%= @user.followers.count %></p>
           <a href="#" class="profile-link">Followers</a>
         </div>
         <div class="col-md-1">
-          <p class="num-follow"><%= "#{@user.following.count}" %></p>
+          <p class="num-follow"><%= @user.following.count %></p>
           <a href="#" class="profile-link">Following</a>
         </div>
         <div class="col-md-1"></div>

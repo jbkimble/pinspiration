@@ -11,8 +11,16 @@ describe "User  can invite another user to see thier private board" do
 
     visit show_user_path(user.slug)
 
-    click_on "#{board.name}"
+    expect(SharedBoard.all.count).to eq(0)
 
-    click_on
+
+    click_on "#{board.name}"
+    fill_in "viewer", :with => "#{invitee.username}"
+    click_on "Share"
+
+    expect(SharedBoard.all.count).to eq(1)
+    expect(SharedBoard.first.owner_id).to eq(user.id)
+    expect(SharedBoard.first.viewer_id).to eq(invitee.id)
+    expect(SharedBoard.first.board_id).to eq(board.id)
   end
 end

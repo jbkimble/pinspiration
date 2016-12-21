@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
 
   def show
+    # viewed_user = User.find_by(slug: params[:user])
+    # @user = UserPresenter.new(current_user, viewed_user)    
     if @user = User.find_by(slug: params[:user])
       @user.set_private_boards(current_user)
     else
