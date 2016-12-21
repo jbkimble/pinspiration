@@ -25,6 +25,8 @@ describe "comments endpoints" do
       post "/api/v1/comments?pin_id=#{pin.id}&api_key=#{user.api_key}", '{	"comment": {	"content": "Hello World"	}}', headers
 
       pin_json = JSON.parse(response.body)
+
+      expect(response).to be_success
       expect(pin_json["pin_id"]).to eq(pin.id)
       expect(pin_json["content"]).to eq("Hello World")
     end
@@ -39,6 +41,8 @@ describe "comments endpoints" do
       put "/api/v1/comments?id=#{comment.id}&api_key=#{user.api_key}", '{	"comment": {	"content": "Hello World"	}}', headers
 
       pin_json = JSON.parse(response.body)
+
+      expect(response).to be_success
       expect(pin_json["id"]).to eq(comment.id)
       expect(pin_json["content"]).to eq("Hello World")
       expect(pin_json["content"]).to_not eq("Stuff and things")
@@ -60,15 +64,14 @@ describe "comments endpoints" do
       expect(pin_json.first["id"]).to eq(comment1.id)
       expect(pin_json.last["id"]).to eq(comment2.id)
 
-      # headers = { "CONTENT_TYPE" => "application/json" }
-      delete "/api/v1/comments?id=#{comment2.id}&api_key=#{user.api_key}"#, headers
+      delete "/api/v1/comments?id=#{comment2.id}&api_key=#{user.api_key}"
 
       pin_json = JSON.parse(response.body)
+
+      expect(response).to be_success
       expect(pin_json.count).to eq(1)
       expect(pin_json.first["id"]).to eq(comment1.id)
       expect(pin_json.last["id"]).to eq(comment1.id)
-      # expect(pin_json["content"]).to eq("Hello World")
-      # expect(pin_json["content"]).to_not eq("Stuff and things")
     end
   end
 end
