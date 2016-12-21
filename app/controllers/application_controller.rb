@@ -1,15 +1,19 @@
 class ApplicationController < ActionController::Base
   include PublicActivity::StoreController
-  
+
   protect_from_forgery with: :exception
 
-  helper_method :current_user
   before_action :authorize!
-  helper_method :current_admin?
-  helper_method :determine_authorization
+  helper_method :current_user, :current_admin?, :determine_authorization, :logged_in?
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def logged_in?
+    if session[:user_id].nil?
+      redirect_to login_path
+    end
   end
 
   def authorize!
