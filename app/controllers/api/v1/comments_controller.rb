@@ -30,7 +30,7 @@ class Api::V1::CommentsController < ApiController
 
   def update
     comment = Comment.find(params[:id])
-    #check for user to match user w/api key
+    comment.user = User.find_by(api_key: params[:api_key])
     if comment.update(comment_params)
       # format.html { redirect_to comment }
       format.json {render json: comment }
@@ -43,8 +43,11 @@ class Api::V1::CommentsController < ApiController
 
   def destroy
     comment = Comment.find(params[:id])
-    #check for user to match user w/api key
-    comment.delete
+    if comment.user = User.find_by(api_key: params[:api_key])
+      comment.delete
+    else
+      format.json { render json: comment.errors, status: :unprocessable_entity }
+    end
   end
 end
 
