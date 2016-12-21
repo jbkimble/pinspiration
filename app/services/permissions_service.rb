@@ -38,6 +38,8 @@ class PermissionsService
     end
 
     def user_permissions
+      return true if controller == 'shared_boards' && action.in?(%w(create))
+
       return true if controller == "sessions" && action.in?(%w(index new create destroy))
       return true if controller == "users" && action.in?(%w(index show edit update new create))
       return true if controller == "comments" && action.in?(%w(index show edit update new create destroy))
