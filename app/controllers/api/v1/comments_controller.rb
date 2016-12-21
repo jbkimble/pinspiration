@@ -33,11 +33,12 @@ class Api::V1::CommentsController < ApiController
     comment.user = User.find_by(api_key: params[:api_key])
     if comment.update(comment_params)
       # format.html { redirect_to comment }
-      format.json {render json: comment }
+      render json: comment
+      # format.json {render json: comment }
       # format.json { render action: 'show', status: :created, location: @comment }
-    else
+    # else
       # format.html { render action: 'new' }
-      format.json { render json: comment.errors, status: :unprocessable_entity }
+      # format.json { render json: comment.errors, status: :unprocessable_entity }
     end
   end
 
