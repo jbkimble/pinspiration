@@ -22,7 +22,7 @@ describe "pins comments endpoints" do
       pin = create(:pin)
 
       headers = { "CONTENT_TYPE" => "application/json" }
-      post "/api/v1/comments?pin_id=#{pin.id}&api_key=#{user.api_key}", {	"comment": {	"content": "Hello World"	}}, headers
+      post "/api/v1/comments?pin_id=#{pin.id}&api_key=#{user.api_key}", '{	"comment": {	"content": "Hello World"	}}', headers
 
       pin_json = JSON.parse(response.body)
       expect(pin_json["pin_id"]).to eq(pin.id)
