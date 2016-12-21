@@ -101,14 +101,16 @@
         </div>
     </div>
 
-    <% if params[:user] == current_user.slug %>
-  <h2>Activity Feed</h2>
+<% if params[:user] == current_user.slug %>
+  <h2 class="activity-header">Activity Feed</h2>
   <div id="activity-feed">
     <% @activities.each do |activity| %>
-      <% if activity.key[-6..-1] == "create" %>
-        <hr>
-        <%= render_activity activity %> <br>
-      <% end %>
+      <div class="activity-text">
+        <% if activity.key[-6..-1] == "create" %>
+          <hr>
+          <%= render_activity activity %> <br>
+        <% end %>
+      </div>
     <% end %>
   </div>
       </div>
