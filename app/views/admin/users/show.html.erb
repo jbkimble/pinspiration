@@ -1,7 +1,13 @@
 <div class="container">
   <div class="user-info">
     <h2><%= @user.name %></h2>
-    <p>User Status: <%= @user.status %></p>
+
+    <%= form_for [:admin, @user] do |f| %>
+      <%= f.select :status, User.statuses.keys.to_a%>
+
+      <%= f.submit %>
+    <% end %>
+
   </div>
   <h4>Boards</h4>
     <% @user.boards.each do |board| %>

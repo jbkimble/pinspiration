@@ -10,9 +10,11 @@ describe "Admin disables user" do
 
     visit admin_user_path(user)
 
-    expect(page).to have_content("User Status: active")
+    expect(page).to have_content("active")
 
-    click_on "Disable"
+    select "disabled", from: "user[status]" 
+
+    click_on "Update User"
 
     expect(page).to have_content("User has been disabled")
     expect(page).to_not have_content("Active")
