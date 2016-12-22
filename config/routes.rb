@@ -7,14 +7,13 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
+  resources :shared_boards, only: [:create]
   root 'pins#index'
 
   resources :comments
 
   resources :pin_boards, except: [:show]
-
   resources :pins, path: 'pin'
-
   resources :users, only: [:new, :create, :edit, :update]
 
   resources :relationships
@@ -27,9 +26,19 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/dashboard', to: 'dashboard#show'
     resources :pins, only: [:index, :show, :destroy]
-    resources :users, only: [:index, :show]
+    resources :boards, only: [:destroy]
+    resources :comments, only: [:destroy]
+    resources :users, only: [:index, :show, :edit, :update]
   end
 
+  namespace :api, defaults: {format: :json} do
+    namespace :v1 do#api/vi/comments?item_id=1
+      get '/comments', to: 'comments#index'
+      post '/comments', to: 'comments#create'
+      put '/comments', to: 'comments#update'
+      delete '/comments', to: 'comments#destroy'
+    end
+  end
 
   get '/:user', to: 'users#show', as: 'show_user'
 

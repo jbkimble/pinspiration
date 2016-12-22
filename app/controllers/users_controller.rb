@@ -1,10 +1,17 @@
 class UsersController < ApplicationController
 
-
   def show
+    # viewed_user = User.find_by(slug: params[:user])
+    # @user = UserPresenter.new(current_user, viewed_user)
+
+
     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.following_ids)
-    @user = User.find_by(slug: params[:user])
-    @user.set_private_boards(current_user)
+    if @user = User.find_by(slug: params[:user])
+      @user.set_private_boards(current_user)
+    else
+      flash[:failure] = "This user does not exist"
+      redirect_to root_path
+    end
   end
 
   def new
@@ -13,6 +20,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.api_key = ApiKeyGenerator.new_key
     if @user.save
       @user.roles << Role.find_by(name: "user")
       flash[:success] = "Welcome #{@user.name}"

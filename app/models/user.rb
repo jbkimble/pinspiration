@@ -10,11 +10,14 @@ class User < ApplicationRecord
   has_many :user_roles
   has_many :comments
   has_many :boards
+  has_many :pins, through: :boards
   has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id"
 
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+
+  enum status: [:active, :disabled]
 
   before_validation :generate_slug
 
@@ -60,7 +63,6 @@ class User < ApplicationRecord
 
   private
     def set_shared_private_boards(current_user)
-      board_ids = SharedBoard.where(owner_id:id, viewer_id:current_user.id).pluck(:board_id)
-      @private_boards = Board.where(id: board_ids)
+      @private_boards = Board.joins(:shared_boards).where(shared_boards:{owner_id:id, viewer_id:current_user.id})
     end
 end

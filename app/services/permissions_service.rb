@@ -32,11 +32,15 @@ class PermissionsService
       return true if controller == "users/boards" && action.in?(%w(index show))
       return true if controller == "admin/dashboard" && action.in?(%w(show))
       return true if controller == "admin/pins" && action.in?(%w(index show destroy))
-      return true if controller == "admin/users" && action.in?(%w(index show))
+      return true if controller == "admin/boards" && action.in?(%w(destroy))
+      return true if controller == "admin/comments" && action.in?(%w(destroy))
+      return true if controller == "admin/users" && action.in?(%w(index show edit update))
       return true if controller == "passwords" && action.in?(%w(new create update))
     end
 
     def user_permissions
+      return true if controller == 'shared_boards' && action.in?(%w(create))
+
       return true if controller == "sessions" && action.in?(%w(index new create destroy))
       return true if controller == "users" && action.in?(%w(index show edit update new create))
       return true if controller == "comments" && action.in?(%w(index show edit update new create destroy))
@@ -54,7 +58,7 @@ class PermissionsService
 
     def guest_permissions
       return true if controller == "sessions" && action.in?(%w(index new create))
-      return true if controller == "users" && action.in?(%w(index show new create))
+      return true if controller == "users" && action.in?(%w(index new create))
       return true if controller == "pins" && action.in?(%w(index show))
       return true if controller == "pin_boards" && action.in?(%w(new))
       return true if controller == "users/boards" && action.in?(%w(index show))
