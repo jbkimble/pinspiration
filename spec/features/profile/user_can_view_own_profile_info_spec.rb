@@ -10,7 +10,7 @@ describe "User can see profile" do
 
     expect(page).to have_content(user.username)
     expect(page).to_not have_content(user2.username)
-    expect(page).to have_content(user.avatar)
+    expect(page).to have_xpath("//img[contains(@src,'#{user.avatar}')]")
     expect(page).to have_link(nil, href: edit_user_path(user))
     expect(page).to_not have_link(nil, href: edit_user_path(user2))
   end
