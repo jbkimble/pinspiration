@@ -49,15 +49,12 @@
           <a href="#" class="profile-link">Boards</a>
         </div>
         <div class="col-md-1">
-          <p class="num-follow"><%= @user.boards.count %></p>
+          <p class="num-follow"><%= @user.pins.count %></p>
           <a href="#" class="profile-link">Pins</a>
         </div>
         <%= render '/layouts/follow_button', :user => @user %>
         <div class="col-md-6"></div>
-
-
       </div>
-
 
   <div class="boards-grid">
     <div class="container-fluid">
