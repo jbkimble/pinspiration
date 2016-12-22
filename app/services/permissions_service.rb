@@ -58,7 +58,7 @@ class PermissionsService
 
     def guest_permissions
       return true if controller == "sessions" && action.in?(%w(index new create))
-      return true if controller == "users" && action.in?(%w(index show new create))
+      return true if controller == "users" && action.in?(%w(index new create))
       return true if controller == "pins" && action.in?(%w(index show))
       return true if controller == "pin_boards" && action.in?(%w(new))
       return true if controller == "users/boards" && action.in?(%w(index show))

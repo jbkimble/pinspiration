@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
-  before_action :logged_in?
 
   def show
     # viewed_user = User.find_by(slug: params[:user])
     # @user = UserPresenter.new(current_user, viewed_user)
-  
+
 
     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.following_ids)
     if @user = User.find_by(slug: params[:user])
