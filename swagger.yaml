@@ -1,0 +1,141 @@
+
+swagger: '2.0'
+info:
+  title: Pinspiration Comments API
+  description: Manage comments on Pinspiration pins
+  version: "1.0.0"
+
+host: the-real-pinspiration.herokuapp.com
+
+schemes:
+  - https
+
+basePath: /api/v1
+produces:
+  - application/json
+paths:
+  /comments:
+    get:
+      summary: All Comments for a pin
+      description:
+        The Comments path displays all comments for a given pin, with the user ID of the user who posted the comment and the content of the comment.
+      parameters:
+        - name: pin_id
+          in: query
+          description: Pin that comments are shown for
+          required: true
+          type: number
+          format:
+        - name: api_key
+          in: query
+          description: The registered user's API key
+          required: true
+          type: string
+          format:
+
+      responses:
+        200:
+          description: All comments for a pin
+          schema:
+            type: array
+            items: hash
+            $ref: '#/definitions/Comment'
+
+    post:
+      summary: Add a new comment to a pin
+      description:
+        Add a new comment to the pin specified in the query.
+      parameters:
+        - name: pin_id
+          in: query
+          description: Pin that comments are shown for
+          required: true
+          type: number
+          format:
+        - name: api_key
+          in: query
+          description: The registered user's API key
+          required: true
+          type: string
+          format:
+        - name: content
+          in: body
+          description: The desired content for the new comment
+          required: true
+          type: text
+          format:
+
+      responses:
+        200:
+          description: Successfully added a new comment
+          schema:
+            type: array
+            items: hash
+            $ref: '#/definitions/Comment'
+
+    put:
+      summary: Edit a comment
+      description:
+        Edit a comment made by user tied to API key.
+      parameters:
+        - name: id
+          in: params
+          description: Comment id
+          required: true
+          type: number
+          format:
+        - name: api_key
+          in: query
+          description: The registered user's API key, user must match the comment's user.
+          required: true
+          type: string
+          format:
+
+      responses:
+        200:
+          description: Successfully edited comment
+          schema:
+            type: array
+            items: hash
+            $ref: '#/definitions/Comment'
+
+    delete:
+      summary: Delete a comment
+      description:
+        Edit a comment made by user tied to API key.
+      parameters:
+        - name: id
+          in: params
+          description: Comment id
+          required: true
+          type: number
+          format:
+        - name: api_key
+          in: query
+          description: The registered user's API key, user must match the comment's user.
+          required: true
+          type: string
+          format:
+
+      responses:
+        200:
+          description: Successfully edited comment
+          schema:
+            type: array
+            items: hash
+            $ref: '#/definitions/Comment'
+
+
+definitions:
+  Comment:
+    type: object
+    properties:
+      pin_id:
+        type: integer
+        description: Identifier for the pin the comment belongs to.
+      user_id:
+        type: integer
+        description: Identifier for the user the comment belongs to.
+      content:
+        type: string
+        description: The content of the comment.

@@ -31,6 +31,14 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update]
   end
 
+  namespace :api, defaults: {format: :json} do
+    namespace :v1 do#api/vi/comments?item_id=1
+      get '/comments', to: 'comments#index'
+      post '/comments', to: 'comments#create'
+      put '/comments', to: 'comments#update'
+      delete '/comments', to: 'comments#destroy'
+    end
+  end
 
   get '/:user', to: 'users#show', as: 'show_user'
 

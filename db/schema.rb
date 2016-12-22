@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20161221185445) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,6 +125,7 @@ ActiveRecord::Schema.define(version: 20161221185445) do
     t.string   "avatar",            default: "https://s.pinimg.com/images/user/default_444.png"
     t.string   "slug"
     t.string   "verification_code"
+    t.string   "api_key"
     t.integer  "status",            default: 0
   end
 

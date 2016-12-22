@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.api_key = ApiKeyGenerator.new_key
     if @user.save
       @user.roles << Role.find_by(name: "user")
       flash[:success] = "Welcome #{@user.name}"

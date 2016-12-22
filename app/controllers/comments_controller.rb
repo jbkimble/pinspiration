@@ -2,6 +2,8 @@ class CommentsController < ApplicationController
 
   def index
     @comments = Comment.all
+    #@item = Item.find(params[:id])
+    #@comments = Faraday.get(/api/v1/comments?item_id=1)
   end
 
   def new
