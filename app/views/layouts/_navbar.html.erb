@@ -32,11 +32,6 @@
 
           <% if current_user %>
             <li>
-              <%= link_to "#" do %>
-                <i class="glyphicon glyphicon-inbox menu" id="feed"></i>
-              <% end %>
-            </li>
-            <li>
               <%= link_to show_user_path(current_user.slug) do %>
                 <i class="glyphicon glyphicon-user menu" id="profile"></i>
               <% end %>

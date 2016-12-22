@@ -1,22 +1,12 @@
-<h2>Choose Board</h2>
+<h2 class="board-header">Choose Board</h2>
 
-<%= form_for @pin_board do |f| %>
-  <%= f.label "Choose Board" %>
-  <%= f.collection_select(:board_id, current_user.boards, :id, :name) %>
+<div class="center-it">
+  <%= form_for @pin_board do |f| %>
+    <%= f.label "Choose Board" %>
+    <%= f.collection_select(:board_id, current_user.boards, :id, :name) %>
 
-  <%= f.hidden_field :pin_id %>
+    <%= f.hidden_field :pin_id %>
 
-  <%= f.submit "Add to board" %>
-
-<% end %>
-
-<h3> Create new board </h3>
-<%#= form_for @pin_board do |f| %>
-  <%#= f.label :name %>
-  <%#= f.text_field :name %>
-
-  <%#= f.hidden_field :pin_id %>
-
-  <%#= f.submit "Create board and add pin" %>
-
-<%# end %>
+    <%= f.submit "Add to board" %>
+  <% end %>
+</div>

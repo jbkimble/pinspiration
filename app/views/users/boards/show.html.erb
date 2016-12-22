@@ -1,10 +1,17 @@
 <div class="container">
+  <div class="center-it">
+  <h2 class="generic-header"><%= @board.name %> by <%= @board.user.name %></h2>
 
-  <h2><%= @board.name %> by <%= @board.user.name %></h2>
+  <%= form_tag('/shared_boards', method:"post")  do |f| %>
+    <%= text_field_tag :viewer %>
+    <%= hidden_field_tag :board_id, @board.id  %>
+    <%= submit_tag("Share") %>
+  <% end %>
+
   <%= link_to "Edit Board", edit_board_path(@board) %>
   <%= link_to "Delete Board", board_path(@board), method: "delete" %>
 
-  <%#= render partial: 'shared/pins' %>
+
   <%= javascript_include_tag('pins.js') %>
 
   <div class="container">
@@ -22,5 +29,6 @@
       </div>
       <% end %>
     </div>
+  </div>
   </div>
 </div>
