@@ -19,11 +19,8 @@ API endpoints: /api/v1/comments
 ![Image1](/readmeimg/image4.png?raw=true "Optional Title")
 ![Image1](/readmeimg/image5.png?raw=true "Optional Title")
 ![Image1](/readmeimg/image6.png?raw=true "Optional Title")
-![Image1](/readmeimg/image3.png?raw=true "Optional Title")
 ![Image1](/readmeimg/image1.png?raw=true "Optional Title")
-
-
-
+![Image1](/readmeimg/image3.png?raw=true "Optional Title")
 
 
 Contributors: [Erin Pintozzi](https://github.com/epintozzi), [Anna Dolan](https://github.com/annadolan), [Jon Kimble](https://github.com/jbkimble), and [Vido Seaver](https://github.com/vidoseaver)
