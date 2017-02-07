@@ -5,7 +5,8 @@
 
 Heroku: https://the-real-pinspiration.herokuapp.com/
 
-Pinspiration is a clone of the Pinterest web app.  Users can create groups of 'pinned' images called 'boards' which can be made public or private or can easily be shared with other users via on the site.  Users can also visit other users profiles and click a button to 'follow' their friends, they then see a live activity feed of what the people they follow are up to on the site. If a user loses their password they can request a password reset via a text sent to their cell phone.
+Pinspiration is a clone of the Pinterest web app.  Users can create groups of 'pinned' images called 'boards' which can be made private, or be made public and easily be shared with other users via on the site.  
+Users can also visit other users profiles and click a button to 'follow' their friends, they then see a live activity feed of what the people they follow are up to on the site. If a user loses their password they can request a password reset via a text sent to their cell phone.
 Visitors can view an index of pins or an individual pin, and can create a new user account.
 Admins can delete pins and disable users.
 
