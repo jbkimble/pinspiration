@@ -4,11 +4,10 @@ Pinspiration is a clone of Pinterest with authentication and authorization. Visi
 
 The project also serves a JSON API for comments on pins, with endpoints for GET, POST, PUT and DELETE requests for users with API keys.
 
-![Image1](/readmeimg/image1.png?raw=true "Optional Title")
 ![Image1](/readmeimg/image2.png?raw=true "Optional Title")
-![Image1](/readmeimg/image3.png?raw=true "Optional Title")
 ![Image1](/readmeimg/image4.png?raw=true "Optional Title")
 ![Image1](/readmeimg/image5.png?raw=true "Optional Title")
+![Image1](/readmeimg/image6.png?raw=true "Optional Title")
 
 * Ruby version: 2.3.0
 * Rails version: 5.0.1
